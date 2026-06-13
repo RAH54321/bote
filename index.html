@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>B.O.T.E. Magic Calculator</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:#1B3A2D;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cg opacity='0.18' fill='none' stroke='%2374C69A' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M100 180 Q100 140 100 100' stroke-width='2'/%3E%3Cpath d='M100 130 Q70 110 55 85 Q80 90 100 130' stroke-width='1.5' fill='%2374C69A'/%3E%3Cpath d='M100 115 Q130 95 145 70 Q120 75 100 115' stroke-width='1.5' fill='%2374C69A'/%3E%3Cpath d='M100 155 Q78 145 65 128 Q85 132 100 155' stroke-width='1.5' fill='%2374C69A'/%3E%3Cpath d='M100 145 Q122 135 134 118 Q114 122 100 145' stroke-width='1.5' fill='%2374C69A'/%3E%3Cpath d='M100 100 Q88 82 80 65 Q96 75 100 100' stroke-width='1.2' fill='%2374C69A'/%3E%3Cpath d='M100 100 Q112 82 120 65 Q104 75 100 100' stroke-width='1.2' fill='%2374C69A'/%3E%3C/g%3E%3C/svg%3E");background-size:200px 200px;pointer-events:none;z-index:0;}
+
+.pg{display:none;position:relative;z-index:1;max-width:480px;margin:0 auto;padding:0 16px 60px;}
+.pg.on{display:block;}
+
+header{text-align:center;padding:36px 0 24px;}
+.badge{display:inline-block;background:#D4AF37;color:#1B3A2D;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:12px;}
+h1{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:#F5EDD6;line-height:1.2;}
+h1 em{font-style:italic;color:#D4AF37;}
+.sub{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:#8FBF9F;margin-top:4px;}
+.tagline{font-size:13px;color:#8FBF9F;margin-top:8px;}
+.divider{display:flex;align-items:center;gap:10px;margin:0 0 18px;opacity:.3;}
+.divider span{flex:1;height:1px;background:#74C69A;}
+
+.card{background:rgba(255,255,255,.07);border-radius:16px;padding:14px 16px;margin-bottom:10px;border:1px solid rgba(116,198,154,.22);}
+.lbl{display:block;font-size:11px;font-weight:600;color:#8FBF9F;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;}
+.card input{display:block;width:100%;font-size:16px;font-family:'DM Sans',sans-serif;color:#F5EDD6;background:transparent;border:none;outline:none;-webkit-appearance:none;color-scheme:dark;}
+.card input::placeholder{color:rgba(245,237,214,.28);}
+.hint{font-size:12px;color:#6B9E7F;margin-top:5px;}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.tap-card{cursor:pointer;-webkit-tap-highlight-color:rgba(212,175,55,.15);}
+
+.drive-row{display:flex;align-items:center;gap:10px;}
+.drive-row input{flex:1;}
+.maps-btn{display:inline-block;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.45);color:#D4AF37;border-radius:10px;padding:8px 12px;font-size:12px;font-weight:600;font-family:'DM Sans',sans-serif;text-decoration:none;white-space:nowrap;flex-shrink:0;}
+
+.errmsg{background:rgba(200,50,50,.15);border:1px solid rgba(200,50,50,.3);border-radius:12px;padding:11px 14px;font-size:13px;color:#f88;margin-bottom:10px;display:none;}
+
+.btn-gold{display:block;width:100%;background:linear-gradient(135deg,#D4AF37,#C49A1A);color:#1B3A2D;border:none;border-radius:14px;padding:16px;font-size:16px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;text-align:center;box-shadow:0 4px 18px rgba(212,175,55,.3);margin-bottom:8px;-webkit-appearance:none;appearance:none;}
+
+/* Results */
+.res-header{text-align:center;padding:32px 0 18px;}
+.res-header h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#F5EDD6;}
+.res-header p{font-size:13px;color:#8FBF9F;margin-top:5px;}
+.tgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px;}
+.tblock{background:rgba(27,58,45,.8);border:1px solid rgba(116,198,154,.2);border-radius:13px;padding:11px 6px;text-align:center;}
+.tblock.gold{border-color:rgba(212,175,55,.4);}
+.tl{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#74C69A;margin-bottom:4px;line-height:1.3;}
+.tblock.gold .tl{color:#D4AF37;}
+.tv{font-size:17px;font-weight:700;color:#F5EDD6;letter-spacing:-.3px;}
+.tblock.gold .tv{color:#D4AF37;}
+.bkdn{font-size:13px;color:#8FBF9F;line-height:1.9;border-top:1px solid rgba(116,198,154,.18);padding-top:12px;margin-bottom:16px;}
+.bkdn strong{color:#F5EDD6;}
+.slbl{font-size:11px;font-weight:600;color:#8FBF9F;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;}
+.cal-btn{display:flex;align-items:center;gap:12px;background:rgba(27,58,45,.7);border:1px solid rgba(116,198,154,.22);border-radius:14px;padding:13px 14px;margin-bottom:8px;text-decoration:none;cursor:pointer;}
+.cal-icon{font-size:22px;flex-shrink:0;}
+.cal-info{flex:1;}
+.cal-title{font-size:13px;font-weight:600;color:#F5EDD6;margin-bottom:2px;}
+.cal-time{font-size:12px;color:#74C69A;}
+.cal-plus{font-size:20px;color:#D4AF37;font-weight:300;flex-shrink:0;}
+.btn-green{display:block;width:100%;background:rgba(116,198,154,.14);border:1px solid rgba(116,198,154,.32);color:#74C69A;border-radius:14px;padding:14px;font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;text-align:center;text-decoration:none;margin-bottom:10px;cursor:pointer;}
+.btn-back{display:block;width:100%;background:transparent;border:1px solid rgba(116,198,154,.2);color:#6B9E7F;border-radius:14px;padding:13px;font-size:14px;font-weight:600;font-family:'DM Sans',sans-serif;text-align:center;cursor:pointer;margin-bottom:10px;-webkit-appearance:none;appearance:none;}
+.cal-note{font-size:11px;color:#6B9E7F;text-align:center;margin-top:8px;line-height:1.6;}
+footer{text-align:center;padding:24px 0 4px;font-size:11px;color:rgba(116,198,154,.3);letter-spacing:.06em;}
+.kitten-lnk{display:block;text-align:center;padding:8px;font-size:12px;color:rgba(116,198,154,.45);text-decoration:underline;text-underline-offset:3px;}
+
+/* Autocomplete */
+.ac-wrap{position:relative;}
+.ac-list{background:#1B3A2D;border:1px solid rgba(116,198,154,.35);border-radius:12px;margin-top:6px;overflow:hidden;display:none;}
+.ac-item{padding:10px 14px;font-size:13px;color:#F5EDD6;border-bottom:1px solid rgba(116,198,154,.1);cursor:pointer;}
+.ac-item:last-child{border-bottom:none;}
+.ac-main{font-weight:600;}
+.ac-sub{font-size:11px;color:#74C69A;margin-top:2px;}
+</style>
+</head>
+<body>
+
+<!-- Safari detection banner -->
+<div id="safari-banner" style="display:none;position:fixed;inset:0;z-index:9999;background:#1B3A2D;align-items:center;justify-content:center;padding:32px 24px;flex-direction:column;text-align:center;">
+  <div style="font-size:48px;margin-bottom:16px;">&#127807;</div>
+  <div style="font-family:Georgia,serif;font-size:24px;font-weight:700;color:#F5EDD6;margin-bottom:8px;">Open in Safari</div>
+  <div style="font-size:14px;color:#8FBF9F;line-height:1.6;margin-bottom:24px;">
+    This app needs to run in Safari to work properly.<br><br>
+    Tap the <strong style="color:#D4AF37;">share icon</strong> at the bottom of your screen, then tap <strong style="color:#D4AF37;">&ldquo;Open in Safari&rdquo;</strong>
+  </div>
+  <div style="background:rgba(116,198,154,0.15);border:1px solid rgba(116,198,154,0.3);border-radius:16px;padding:16px 20px;font-size:13px;color:#74C69A;line-height:1.7;">
+    &#128247; Look for this icon at the bottom of your screen:<br>
+    <span style="font-size:28px;">&#8682;</span><br>
+    Then tap <strong>&ldquo;Open in Safari&rdquo;</strong>
+  </div>
+</div>
+
+
+<!-- FORM PAGE -->
+<div class="pg" id="pg-form" style="display:block;">
+  <header>
+    <div class="badge">&#10024; For you, babe &#10024;</div>
+    <h1>Babes On Time<br>to <em>Everything</em></h1>
+    <div class="sub">Magic Calculator</div>
+    <p class="tagline">Tell me where you're going.<br>I'll tell you when to start getting gorgeous.</p>
+  </header>
+  <div class="divider"><span></span>&#127807;<span></span></div>
+
+  <div class="card">
+    <span class="lbl">What's the appointment?</span>
+    <input type="text" id="f-name" placeholder="Doctor, hair, dentist, spa day&hellip;"/>
+  </div>
+
+  <div class="card">
+    <span class="lbl">Where are you going?</span>
+    <div class="ac-wrap">
+      <input type="text" id="f-dest" placeholder="Type a name or address&hellip;" autocomplete="off"/>
+      <div class="ac-list" id="ac-list"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="lbl">Leaving from</span>
+    <input type="text" id="f-origin" value="3101 N Oxnard Blvd, Oxnard, CA 93036"/>
+  </div>
+
+  <div class="row2">
+    <label class="card tap-card" for="f-date">
+      <span class="lbl">Date</span>
+      <input type="date" id="f-date"/>
+    </label>
+    <label class="card tap-card" for="f-time">
+      <span class="lbl">Time</span>
+      <input type="time" id="f-time"/>
+    </label>
+  </div>
+
+  <div class="card">
+    <span class="lbl">Get-ready time (your estimate, minutes)</span>
+    <input type="number" id="f-ready" placeholder="e.g. 60" min="1" max="300" inputmode="numeric"/>
+    <p class="hint">We'll pad this automatically. &#128133;</p>
+  </div>
+
+  <div class="card">
+    <span class="lbl">Drive time (minutes)</span>
+    <div class="drive-row">
+      <input type="number" id="f-drive" value="25" min="1" max="300" inputmode="numeric"/>
+      <button id="maps-check" type="button" class="maps-btn" style="-webkit-appearance:none;appearance:none;cursor:pointer;">&#128506; Check in Maps</button>
+    </div>
+    <p class="hint">Check Maps for your drive time then update this number.</p>
+  </div>
+
+  <div class="errmsg" id="f-err"></div>
+  <button class="btn-gold" id="magic-btn" type="button">&#10024; Work Your Magic &#10024;</button>
+
+  <footer>B.O.T.E. Magic Calculator &middot; Made with &#128155; for you</footer>
+  <a class="kitten-lnk" href="https://www.google.com/search?q=cute+kitten+photos&tbm=isch" target="_blank">&#128049; click here for kittens</a>
+</div>
+
+<!-- RESULTS PAGE -->
+<div class="pg" id="pg-results" style="display:none;">
+  <div class="res-header">
+    <div class="badge">&#10024; Your Schedule &#10024;</div>
+    <h2 id="r-title">Schedule</h2>
+    <p id="r-date"></p>
+  </div>
+  <div class="tgrid">
+    <div class="tblock"><div class="tl">Start getting ready</div><div class="tv" id="r-ready">-</div></div>
+    <div class="tblock"><div class="tl">Leave by</div><div class="tv" id="r-leave">-</div></div>
+    <div class="tblock gold"><div class="tl">Appointment</div><div class="tv" id="r-appt">-</div></div>
+  </div>
+  <div class="bkdn" id="r-bkdn"></div>
+  <div class="slbl">Add each event to your calendar &#128071;</div>
+
+  <a class="cal-btn" id="c-ready" href="#">
+    <div class="cal-icon">&#128133;</div>
+    <div class="cal-info">
+      <div class="cal-title">Start getting ready</div>
+      <div class="cal-time" id="c-ready-t"></div>
+    </div>
+    <div class="cal-plus">+</div>
+  </a>
+  <a class="cal-btn" id="c-leave" href="#">
+    <div class="cal-icon">&#128663;</div>
+    <div class="cal-info">
+      <div class="cal-title">Leave now!</div>
+      <div class="cal-time" id="c-leave-t"></div>
+    </div>
+    <div class="cal-plus">+</div>
+  </a>
+  <a class="cal-btn" id="c-appt" href="#">
+    <div class="cal-icon">&#128197;</div>
+    <div class="cal-info">
+      <div class="cal-title" id="c-appt-title">Appointment</div>
+      <div class="cal-time" id="c-appt-t"></div>
+    </div>
+    <div class="cal-plus">+</div>
+  </a>
+
+  <button id="r-maps" type="button" class="btn-green" style="-webkit-appearance:none;appearance:none;cursor:pointer;">&#128506; Open route in Maps</button>
+  <p class="cal-note">Tap each event to add it to Apple Calendar. You'll get reminders. &#127807;</p>
+  <button class="btn-back" id="back-btn" type="button">&#8592; Back</button>
+  <a class="kitten-lnk" href="https://www.google.com/search?q=cute+kitten+photos&tbm=isch" target="_blank">&#128049; click here for kittens</a>
+</div>
+
+<script>
+
+// Detect if running inside a WebView (email, Files, etc.) instead of Safari
+(function(){
+  var ua = navigator.userAgent;
+  // In Safari: contains 'Safari' and does NOT contain 'CriOS','FxiOS','EdgiOS'
+  // In Mail/Files WebView: contains 'Mobile' but not 'Safari' in user agent
+  var isIOSWebView = /iP(hone|od|ad)/.test(ua) && !(/Safari\//.test(ua));
+  var isMail = /MobileMail|MailClient/.test(ua);
+  if(isIOSWebView || isMail){
+    document.getElementById('safari-banner').style.display='flex';
+  }
+})();
+
+function $(id){ return document.getElementById(id); }
+
+function pz(n){ return n < 10 ? '0'+n : ''+n; }
+
+function fmt(d){
+  var h=d.getHours(), m=d.getMinutes(), ap=h>=12?'PM':'AM';
+  h=h%12; if(!h) h=12;
+  return h+':'+pz(m)+' '+ap;
+}
+
+function fmtD(d){
+  var days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var mon=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return days[d.getDay()]+', '+mon[d.getMonth()]+' '+d.getDate();
+}
+
+function icsDate(d){
+  return ''+d.getUTCFullYear()+pz(d.getUTCMonth()+1)+pz(d.getUTCDate())+'T'+pz(d.getUTCHours())+pz(d.getUTCMinutes())+'00Z';
+}
+
+function makeICS(title, desc, loc, start, end, alarmMins){
+  var s='BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//BOTE//EN\r\nBEGIN:VEVENT\r\n';
+  s+='DTSTART:'+icsDate(start)+'\r\n';
+  s+='DTEND:'+icsDate(end)+'\r\n';
+  s+='SUMMARY:'+title+'\r\n';
+  s+='DESCRIPTION:'+desc+'\r\n';
+  s+='LOCATION:'+(loc||'')+'\r\n';
+  if(alarmMins){
+    s+='BEGIN:VALARM\r\nTRIGGER:-PT'+alarmMins+'M\r\nACTION:DISPLAY\r\nDESCRIPTION:'+title+'\r\nEND:VALARM\r\n';
+  }
+  s+='END:VEVENT\r\nEND:VCALENDAR';
+  return s;
+}
+
+function setICS(el, ics, fname){
+  el.href='data:text/calendar;base64,'+btoa(unescape(encodeURIComponent(ics)));
+  el.download=fname;
+}
+
+function showErr(msg){ var e=$('f-err'); e.textContent=msg; e.style.display='block'; }
+function hideErr(){ $('f-err').style.display='none'; }
+
+function showPg(id){
+  $('pg-form').style.display='none';
+  $('pg-results').style.display='none';
+  $(id).style.display='block';
+  window.scrollTo(0,0);
+}
+
+function updateMapsURL(){
+  var org=$('f-origin').value.trim()||'3101 N Oxnard Blvd, Oxnard, CA 93036';
+  var dst=$('f-dest').value.trim();
+  var url=dst
+    ?'maps://?saddr='+encodeURIComponent(org)+'&daddr='+encodeURIComponent(dst)+'&dirflg=d'
+    :'maps://?q='+encodeURIComponent(org);
+  $('maps-check').setAttribute('data-url', url);
+}
+
+function go(){
+  hideErr();
+  var name  = $('f-name').value.trim()||'Appointment';
+  var dest  = $('f-dest').value.trim();
+  var org   = $('f-origin').value.trim()||'3101 N Oxnard Blvd, Oxnard, CA 93036';
+  var dv    = $('f-date').value;
+  var tv    = $('f-time').value;
+  var ready = parseInt($('f-ready').value,10);
+  var drive = parseInt($('f-drive').value,10);
+
+  if(!dest)              { showErr('Please enter where you are going.'); return; }
+  if(!dv)                { showErr('Please enter the appointment date.'); return; }
+  if(!tv)                { showErr('Please enter the appointment time.'); return; }
+  if(!(ready>0))         { showErr('Please enter your get-ready time.'); return; }
+  if(!(drive>0))         { showErr('Please enter the drive time.'); return; }
+
+  var dp=dv.split('-'), tp=tv.split(':');
+  var appt=new Date(+dp[0], +dp[1]-1, +dp[2], +tp[0], +tp[1], 0);
+
+  var buffReady = Math.round(ready*1.5)+10;
+  var buffDrive = drive+10;
+  var leave     = new Date(appt.getTime() - buffDrive*60000);
+  var readyT    = new Date(appt.getTime() - (buffReady+buffDrive)*60000);
+
+  $('r-title').textContent = name+' \uD83D\uDC51';
+  $('r-date').textContent  = fmtD(appt);
+  $('r-ready').textContent = fmt(readyT);
+  $('r-leave').textContent = fmt(leave);
+  $('r-appt').textContent  = fmt(appt);
+
+  var dl=fmtD(appt);
+  $('r-bkdn').innerHTML=
+    '<span>\uD83D\uDC85 Get-ready: '+ready+' min &rarr; <strong>'+buffReady+' min</strong> (&times;1.5 + 10 min)</span>'+
+    '<span>\uD83D\uDE97 Drive: '+drive+' min + 10 min buffer = <strong>'+buffDrive+' min</strong></span>';
+
+  $('c-ready-t').textContent = fmt(readyT)+' \u00B7 '+dl;
+  $('c-leave-t').textContent = fmt(leave)+' \u00B7 '+dl;
+  $('c-appt-title').textContent = name;
+  $('c-appt-t').textContent  = fmt(appt)+' \u00B7 '+dl;
+
+  var rEnd=new Date(readyT.getTime()+10*60000);
+  var lEnd=new Date(leave.getTime()+10*60000);
+  var aEnd=new Date(appt.getTime()+60*60000);
+
+  setICS($('c-ready'), makeICS('Get ready for '+name,'Leave by '+fmt(leave),'',readyT,rEnd,10), 'get_ready.ics');
+  setICS($('c-leave'), makeICS('Leave for '+name+'!','Appointment at '+fmt(appt)+' at '+dest+'.',dest,leave,lEnd,5), 'leave_now.ics');
+  setICS($('c-appt'),  makeICS(name,'At '+dest+'. Leave by '+fmt(leave)+'.',dest,appt,aEnd,10), name.replace(/\s+/g,'_')+'.ics');
+
+  $('r-maps').setAttribute('data-url','maps://?saddr='+encodeURIComponent(org)+'&daddr='+encodeURIComponent(dest)+'&dirflg=d');
+
+  showPg('pg-results');
+}
+
+// Wire up buttons
+$('magic-btn').addEventListener('click', go);
+$('back-btn').addEventListener('click', function(){ showPg('pg-form'); });
+function openMaps(btn){
+  var url=btn.getAttribute('data-url')||'maps://';
+  window.location.href=url;
+}
+$('maps-check').addEventListener('click', function(){ openMaps(this); });
+$('r-maps').addEventListener('click', function(){ openMaps(this); });
+$('f-dest').addEventListener('input', function(){ updateMapsURL(); doAC(this.value.trim()); });
+$('f-dest').addEventListener('change', updateMapsURL);
+$('f-origin').addEventListener('input', updateMapsURL);
+$('f-origin').addEventListener('change', updateMapsURL);
+$('f-date').addEventListener('click', function(){ try{this.showPicker();}catch(e){} });
+$('f-time').addEventListener('click', function(){ try{this.showPicker();}catch(e){} });
+
+// Set today's date
+var td=new Date();
+$('f-date').value=td.getFullYear()+'-'+pz(td.getMonth()+1)+'-'+pz(td.getDate());
+
+// Autocomplete
+var acT=null;
+function doAC(q){
+  clearTimeout(acT);
+  var list=$('ac-list');
+  if(q.length<3){ list.style.display='none'; list.innerHTML=''; return; }
+  acT=setTimeout(function(){
+    fetch('https://nominatim.openstreetmap.org/search?q='+encodeURIComponent(q)+'&format=json&limit=5&countrycodes=us',{headers:{'Accept-Language':'en'}})
+    .then(function(r){return r.json();})
+    .then(function(res){
+      if(!res||!res.length){ list.style.display='none'; return; }
+      list.innerHTML='';
+      res.forEach(function(r){
+        var pts=r.display_name.split(',');
+        var div=document.createElement('div');
+        div.className='ac-item';
+        div.innerHTML='<div class="ac-main">'+pts.slice(0,2).join(',').trim()+'</div>'+(pts[2]?'<div class="ac-sub">'+pts.slice(2,4).join(',').trim()+'</div>':'');
+        div.addEventListener('click', function(){
+          $('f-dest').value=r.display_name;
+          list.style.display='none';
+          list.innerHTML='';
+          updateMapsURL();
+        });
+        list.appendChild(div);
+      });
+      list.style.display='block';
+    })
+    .catch(function(){ list.style.display='none'; });
+  },400);
+}
+document.addEventListener('click',function(e){
+  if(!e.target.closest('.ac-wrap')) { var l=$('ac-list'); l.style.display='none'; }
+});
+</script>
+</body>
+</html>
