@@ -10,83 +10,136 @@
 <link rel="apple-touch-icon" href="data:image/png;base64,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"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
 <style>
+:root{--bg:#1B3A2D;--bg-rgb:27,58,45;--leaf:#74C69A;--leaf-rgb:116,198,154;--muted:#8FBF9F;--hint:#6B9E7F;--accent:#D4AF37;--accent-rgb:212,175,55;--accent2:#C49A1A;--on-accent:#1B3A2D;--pattern:none;}
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'DM Sans',sans-serif;background:#1B3A2D;min-height:100vh;overflow-x:hidden;}
-body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cg opacity='0.18' fill='none' stroke='%2374C69A' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M100 180 Q100 140 100 100' stroke-width='2'/%3E%3Cpath d='M100 130 Q70 110 55 85 Q80 90 100 130' stroke-width='1.5' fill='%2374C69A'/%3E%3Cpath d='M100 115 Q130 95 145 70 Q120 75 100 115' stroke-width='1.5' fill='%2374C69A'/%3E%3Cpath d='M100 155 Q78 145 65 128 Q85 132 100 155' stroke-width='1.5' fill='%2374C69A'/%3E%3Cpath d='M100 145 Q122 135 134 118 Q114 122 100 145' stroke-width='1.5' fill='%2374C69A'/%3E%3Cpath d='M100 100 Q88 82 80 65 Q96 75 100 100' stroke-width='1.2' fill='%2374C69A'/%3E%3Cpath d='M100 100 Q112 82 120 65 Q104 75 100 100' stroke-width='1.2' fill='%2374C69A'/%3E%3C/g%3E%3C/svg%3E");background-size:200px 200px;pointer-events:none;z-index:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:var(--pattern);background-size:200px 200px;pointer-events:none;z-index:0;}
 
 .pg{position:relative;z-index:1;max-width:480px;margin:0 auto;padding:0 16px 60px;display:none;}
 
 header{text-align:center;padding:36px 0 24px;}
-.badge{display:inline-block;background:#D4AF37;color:#1B3A2D;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:12px;}
+.badge{display:inline-block;background:var(--accent);color:var(--on-accent);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:12px;}
 h1{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:#F5EDD6;line-height:1.2;}
-h1 em{font-style:italic;color:#D4AF37;}
-.sub{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:#8FBF9F;margin-top:4px;}
-.tagline{font-size:13px;color:#8FBF9F;margin-top:8px;}
+h1 em{font-style:italic;color:var(--accent);}
+.sub{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:var(--muted);margin-top:4px;}
+.tagline{font-size:13px;color:var(--muted);margin-top:8px;}
+.divider i{font-style:normal;}
+.season-note{font-family:'Playfair Display',serif;font-style:italic;font-size:15px;color:var(--accent);margin-top:10px;display:none;}
 .divider{display:flex;align-items:center;gap:10px;margin:0 0 18px;opacity:.3;}
-.divider span{flex:1;height:1px;background:#74C69A;}
+.divider span{flex:1;height:1px;background:var(--leaf);}
 
-.card{background:rgba(255,255,255,.07);border-radius:16px;padding:14px 16px;margin-bottom:10px;border:1px solid rgba(116,198,154,.22);}
-.lbl{display:block;font-size:11px;font-weight:600;color:#8FBF9F;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;}
+.card{background:rgba(255,255,255,.07);border-radius:16px;padding:14px 16px;margin-bottom:10px;border:1px solid rgba(var(--leaf-rgb),.22);}
+.lbl{display:block;font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;}
 .card input{display:block;width:100%;font-size:16px;font-family:'DM Sans',sans-serif;color:#F5EDD6;background:transparent;border:none;outline:none;-webkit-appearance:none;color-scheme:dark;}
 .card input::placeholder{color:rgba(245,237,214,.28);}
-.hint{font-size:12px;color:#6B9E7F;margin-top:5px;}
+.hint{font-size:12px;color:var(--hint);margin-top:5px;}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.tap-card{cursor:pointer;-webkit-tap-highlight-color:rgba(212,175,55,.15);}
+.tap-card{cursor:pointer;-webkit-tap-highlight-color:rgba(var(--accent-rgb),.15);}
 .drive-row{display:flex;align-items:center;gap:10px;}
 .drive-row input{flex:1;}
-.maps-btn{display:inline-block;background:rgba(212,175,55,.15);border:1px solid rgba(212,175,55,.45);color:#D4AF37;border-radius:10px;padding:8px 12px;font-size:12px;font-weight:600;font-family:'DM Sans',sans-serif;text-decoration:none;white-space:nowrap;flex-shrink:0;-webkit-appearance:none;appearance:none;cursor:pointer;}
+.maps-btn{display:inline-block;background:rgba(var(--accent-rgb),.15);border:1px solid rgba(var(--accent-rgb),.45);color:var(--accent);border-radius:10px;padding:8px 12px;font-size:12px;font-weight:600;font-family:'DM Sans',sans-serif;text-decoration:none;white-space:nowrap;flex-shrink:0;-webkit-appearance:none;appearance:none;cursor:pointer;}
 .errmsg{background:rgba(200,50,50,.15);border:1px solid rgba(200,50,50,.3);border-radius:12px;padding:11px 14px;font-size:13px;color:#f88;margin-bottom:10px;display:none;}
-.btn-gold{display:block;width:100%;background:linear-gradient(135deg,#D4AF37,#C49A1A);color:#1B3A2D;border:none;border-radius:14px;padding:16px;font-size:16px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;text-align:center;box-shadow:0 4px 18px rgba(212,175,55,.3);margin-bottom:8px;-webkit-appearance:none;appearance:none;}
+.btn-gold{display:block;width:100%;background:linear-gradient(135deg,var(--accent),var(--accent2));color:var(--on-accent);border:none;border-radius:14px;padding:16px;font-size:16px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;text-align:center;box-shadow:0 4px 18px rgba(var(--accent-rgb),.3);margin-bottom:8px;-webkit-appearance:none;appearance:none;}
 
 /* Autocomplete */
 .ac-wrap{position:relative;}
-.ac-list{background:#1B3A2D;border:1px solid rgba(116,198,154,.35);border-radius:12px;margin-top:6px;overflow:hidden;display:none;}
-.ac-item{padding:10px 14px;font-size:13px;color:#F5EDD6;border-bottom:1px solid rgba(116,198,154,.1);cursor:pointer;}
+.ac-list{background:var(--bg);border:1px solid rgba(var(--leaf-rgb),.35);border-radius:12px;margin-top:6px;overflow:hidden;display:none;}
+.ac-item{padding:10px 14px;font-size:13px;color:#F5EDD6;border-bottom:1px solid rgba(var(--leaf-rgb),.1);cursor:pointer;}
 .ac-item:last-child{border-bottom:none;}
 .ac-main{font-weight:600;}
-.ac-sub{font-size:11px;color:#74C69A;margin-top:2px;}
+.ac-sub{font-size:11px;color:var(--leaf);margin-top:2px;}
 
 /* Results */
 .res-header{text-align:center;padding:32px 0 18px;}
 .res-header h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#F5EDD6;}
-.res-header p{font-size:13px;color:#8FBF9F;margin-top:5px;}
+.res-header p{font-size:13px;color:var(--muted);margin-top:5px;}
 .tgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px;}
-.tblock{background:rgba(27,58,45,.8);border:1px solid rgba(116,198,154,.2);border-radius:13px;padding:11px 6px;text-align:center;}
-.tblock.gold{border-color:rgba(212,175,55,.4);}
-.tl{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#74C69A;margin-bottom:4px;line-height:1.3;}
-.tblock.gold .tl{color:#D4AF37;}
+.tblock{background:rgba(var(--bg-rgb),.8);border:1px solid rgba(var(--leaf-rgb),.2);border-radius:13px;padding:11px 6px;text-align:center;}
+.tblock.gold{border-color:rgba(var(--accent-rgb),.4);}
+.tl{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--leaf);margin-bottom:4px;line-height:1.3;}
+.tblock.gold .tl{color:var(--accent);}
 .tv{font-size:17px;font-weight:700;color:#F5EDD6;letter-spacing:-.3px;}
-.tblock.gold .tv{color:#D4AF37;}
-.bkdn{font-size:13px;color:#8FBF9F;line-height:1.9;border-top:1px solid rgba(116,198,154,.18);padding-top:12px;margin-bottom:16px;}
+.tblock.gold .tv{color:var(--accent);}
+.bkdn{font-size:13px;color:var(--muted);line-height:1.9;border-top:1px solid rgba(var(--leaf-rgb),.18);padding-top:12px;margin-bottom:16px;}
 .bkdn strong{color:#F5EDD6;}
-.slbl{font-size:11px;font-weight:600;color:#8FBF9F;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;}
-.cal-btn{display:flex;align-items:center;gap:12px;background:rgba(27,58,45,.7);border:1px solid rgba(116,198,154,.22);border-radius:14px;padding:13px 14px;margin-bottom:8px;text-decoration:none;cursor:pointer;}
+.slbl{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;}
+.cal-btn{display:flex;align-items:center;gap:12px;background:rgba(var(--bg-rgb),.7);border:1px solid rgba(var(--leaf-rgb),.22);border-radius:14px;padding:13px 14px;margin-bottom:8px;text-decoration:none;cursor:pointer;}
 .cal-icon{font-size:22px;flex-shrink:0;}
 .cal-info{flex:1;}
 .cal-title{font-size:13px;font-weight:600;color:#F5EDD6;margin-bottom:2px;}
-.cal-time{font-size:12px;color:#74C69A;}
-.cal-plus{font-size:20px;color:#D4AF37;font-weight:300;flex-shrink:0;}
-.btn-green{display:block;width:100%;background:rgba(116,198,154,.14);border:1px solid rgba(116,198,154,.32);color:#74C69A;border-radius:14px;padding:14px;font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;text-align:center;text-decoration:none;margin-bottom:10px;-webkit-appearance:none;appearance:none;cursor:pointer;}
-.btn-back{display:block;width:100%;background:transparent;border:1px solid rgba(116,198,154,.2);color:#6B9E7F;border-radius:14px;padding:13px;font-size:14px;font-weight:600;font-family:'DM Sans',sans-serif;text-align:center;cursor:pointer;margin-bottom:10px;-webkit-appearance:none;appearance:none;}
-.cal-note{font-size:11px;color:#6B9E7F;text-align:center;margin-top:8px;line-height:1.6;}
+.cal-time{font-size:12px;color:var(--leaf);}
+.cal-plus{font-size:20px;color:var(--accent);font-weight:300;flex-shrink:0;}
+.btn-green{display:block;width:100%;background:rgba(var(--leaf-rgb),.14);border:1px solid rgba(var(--leaf-rgb),.32);color:var(--leaf);border-radius:14px;padding:14px;font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;text-align:center;text-decoration:none;margin-bottom:10px;-webkit-appearance:none;appearance:none;cursor:pointer;}
+.btn-back{display:block;width:100%;background:transparent;border:1px solid rgba(var(--leaf-rgb),.2);color:var(--hint);border-radius:14px;padding:13px;font-size:14px;font-weight:600;font-family:'DM Sans',sans-serif;text-align:center;cursor:pointer;margin-bottom:10px;-webkit-appearance:none;appearance:none;}
+.cal-note{font-size:11px;color:var(--hint);text-align:center;margin-top:8px;line-height:1.6;}
 
 /* Footer + kitten link */
-footer{text-align:center;padding:24px 0 4px;font-size:11px;color:rgba(116,198,154,.3);letter-spacing:.06em;}
-.kitten-lnk{display:block;text-align:center;padding:8px;font-size:12px;color:rgba(116,198,154,.5);text-decoration:underline;text-underline-offset:3px;cursor:pointer;}
+footer{text-align:center;padding:24px 0 4px;font-size:11px;color:rgba(var(--leaf-rgb),.3);letter-spacing:.06em;}
+.kitten-lnk{display:block;text-align:center;padding:8px;font-size:12px;color:rgba(var(--leaf-rgb),.5);text-decoration:underline;text-underline-offset:3px;cursor:pointer;}
 
 /* Kitten page */
 .kit-header{text-align:center;padding:36px 0 20px;}
 .kit-header h2{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#F5EDD6;}
-.kit-header p{font-size:13px;color:#8FBF9F;margin-top:6px;}
-.kit-wrap{background:rgba(255,255,255,.06);border:1px solid rgba(116,198,154,.2);border-radius:18px;overflow:hidden;margin-bottom:14px;min-height:280px;display:flex;align-items:center;justify-content:center;}
+.kit-header p{font-size:13px;color:var(--muted);margin-top:6px;}
+.kit-wrap{background:rgba(255,255,255,.06);border:1px solid rgba(var(--leaf-rgb),.2);border-radius:18px;overflow:hidden;margin-bottom:14px;min-height:280px;display:flex;align-items:center;justify-content:center;}
 .kit-wrap img{width:100%;max-height:400px;object-fit:cover;display:block;}
-.kit-loading{color:#74C69A;font-size:14px;padding:60px 20px;text-align:center;line-height:1.6;}
-.kit-caption{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:#D4AF37;text-align:center;margin-bottom:16px;min-height:24px;}
+.kit-loading{color:var(--leaf);font-size:14px;padding:60px 20px;text-align:center;line-height:1.6;}
+.kit-caption{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:var(--accent);text-align:center;margin-bottom:16px;min-height:24px;}
 .kit-btns{display:flex;gap:10px;margin-bottom:10px;}
 .kit-btns button{flex:1;padding:14px;border-radius:12px;font-size:14px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;-webkit-appearance:none;appearance:none;}
-.btn-another{background:rgba(212,175,55,.18);color:#D4AF37;border:1px solid rgba(212,175,55,.4);}
-.btn-kit-back{background:rgba(116,198,154,.14);color:#74C69A;border:1px solid rgba(116,198,154,.3);}
+.btn-another{background:rgba(var(--accent-rgb),.18);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.4);}
+.btn-kit-back{background:rgba(var(--leaf-rgb),.14);color:var(--leaf);border:1px solid rgba(var(--leaf-rgb),.3);}
 </style>
+<meta name="theme-color" content="#1B3A2D"/>
+<script>
+/* ===== Seasonal + holiday themes =====
+   Picks a look from today's date. Preview any theme by adding ?theme=NAME to the URL,
+   e.g. https://rah54321.github.io/bote/?theme=christmas
+   Names: summer, spring, fall, winter, valentines, stpatricks, easter, july4,
+          halloween, thanksgiving, christmas, newyear */
+var BOTE_PATTERNS={"leaves": "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><g opacity='0.18' stroke-linecap='round' stroke-linejoin='round'><g fill='none' stroke='{{1}}'><path d='M100 180 Q100 140 100 100' stroke-width='2'/><path d='M100 130 Q70 110 55 85 Q80 90 100 130' stroke-width='1.5' fill='{{1}}'/><path d='M100 115 Q130 95 145 70 Q120 75 100 115' stroke-width='1.5' fill='{{1}}'/><path d='M100 155 Q78 145 65 128 Q85 132 100 155' stroke-width='1.5' fill='{{1}}'/><path d='M100 145 Q122 135 134 118 Q114 122 100 145' stroke-width='1.5' fill='{{1}}'/><path d='M100 100 Q88 82 80 65 Q96 75 100 100' stroke-width='1.2' fill='{{1}}'/><path d='M100 100 Q112 82 120 65 Q104 75 100 100' stroke-width='1.2' fill='{{1}}'/></g></g></svg>", "blossoms": "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><g opacity='0.2' stroke-linecap='round' stroke-linejoin='round'><ellipse cx='56.9' cy='49.2' rx='8.2' ry='11.6' transform='rotate(10 56.9 49.2)' fill='{{1}}'/><ellipse cx='65.9' cy='58.5' rx='8.2' ry='11.6' transform='rotate(82 65.9 58.5)' fill='{{1}}'/><ellipse cx='59.8' cy='69.9' rx='8.2' ry='11.6' transform='rotate(154 59.8 69.9)' fill='{{1}}'/><ellipse cx='47.1' cy='67.6' rx='8.2' ry='11.6' transform='rotate(226 47.1 67.6)' fill='{{1}}'/><ellipse cx='45.3' cy='54.8' rx='8.2' ry='11.6' transform='rotate(298 45.3 54.8)' fill='{{1}}'/><circle cx='55' cy='60' r='5' fill='{{2}}'/><ellipse cx='154' cy='133.1' rx='6' ry='8.4' transform='rotate(30 154 133.1)' fill='{{1}}'/><ellipse cx='157.8' cy='141.7' rx='6' ry='8.4' transform='rotate(102 157.8 141.7)' fill='{{1}}'/><ellipse cx='150.8' cy='148' rx='6' ry='8.4' transform='rotate(174 150.8 148)' fill='{{1}}'/><ellipse cx='142.7' cy='143.3' rx='6' ry='8.4' transform='rotate(246 142.7 143.3)' fill='{{1}}'/><ellipse cx='144.6' cy='134.1' rx='6' ry='8.4' transform='rotate(318 144.6 134.1)' fill='{{1}}'/><circle cx='150' cy='140' r='3.6' fill='{{2}}'/><ellipse cx='160' cy='35' rx='3.8' ry='5.2' transform='rotate(0 160 35)' fill='{{1}}'/><ellipse cx='164.8' cy='38.5' rx='3.8' ry='5.2' transform='rotate(72 164.8 38.5)' fill='{{1}}'/><ellipse cx='162.9' cy='44' rx='3.8' ry='5.2' transform='rotate(144 162.9 44)' fill='{{1}}'/><ellipse cx='157.1' cy='44' rx='3.8' ry='5.2' transform='rotate(216 157.1 44)' fill='{{1}}'/><ellipse cx='155.2' cy='38.5' rx='3.8' ry='5.2' transform='rotate(288 155.2 38.5)' fill='{{1}}'/><circle cx='160' cy='40' r='2.2' fill='{{2}}'/><ellipse cx='42.1' cy='154.4' rx='4.5' ry='6.3' transform='rotate(20 42.1 154.4)' fill='{{1}}'/><ellipse cx='46' cy='160.2' rx='4.5' ry='6.3' transform='rotate(92 46 160.2)' fill='{{1}}'/><ellipse cx='41.7' cy='165.8' rx='4.5' ry='6.3' transform='rotate(164 41.7 165.8)' fill='{{1}}'/><ellipse cx='35' cy='163.4' rx='4.5' ry='6.3' transform='rotate(236 35 163.4)' fill='{{1}}'/><ellipse cx='35.3' cy='156.3' rx='4.5' ry='6.3' transform='rotate(308 35.3 156.3)' fill='{{1}}'/><circle cx='40' cy='160' r='2.7' fill='{{2}}'/><ellipse cx='105' cy='95' rx='4' ry='6' transform='rotate(40 105 95)' fill='{{1}}'/><ellipse cx='95' cy='180' rx='3' ry='5' transform='rotate(-30 95 180)' fill='{{1}}'/><ellipse cx='185' cy='95' rx='3' ry='5' transform='rotate(70 185 95)' fill='{{1}}'/><path d='M40 150 Q70 120 110 112' fill='none' stroke='{{1}}' stroke-width='1.2'/></g></svg>", "maple": "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><g opacity='0.18' stroke-linecap='round' stroke-linejoin='round'><path d='M0,-20 L4,-12 L9,-14 L7,-4 L14,-8 L12,-2 L18,0 L10,6 L12,10 L2,8 L1,18 L-1,18 L-2,8 L-12,10 L-10,6 L-18,0 L-12,-2 L-14,-8 L-7,-4 L-9,-14 L-4,-12 Z' transform='translate(55 55) rotate(-15) scale(1.5)' fill='{{1}}'/><path d='M0,-20 L4,-12 L9,-14 L7,-4 L14,-8 L12,-2 L18,0 L10,6 L12,10 L2,8 L1,18 L-1,18 L-2,8 L-12,10 L-10,6 L-18,0 L-12,-2 L-14,-8 L-7,-4 L-9,-14 L-4,-12 Z' transform='translate(150 135) rotate(25) scale(1.2)' fill='{{1}}'/><path d='M0,-20 L4,-12 L9,-14 L7,-4 L14,-8 L12,-2 L18,0 L10,6 L12,10 L2,8 L1,18 L-1,18 L-2,8 L-12,10 L-10,6 L-18,0 L-12,-2 L-14,-8 L-7,-4 L-9,-14 L-4,-12 Z' transform='translate(160 35) rotate(60) scale(0.7)' fill='{{2}}'/><path d='M0,-20 L4,-12 L9,-14 L7,-4 L14,-8 L12,-2 L18,0 L10,6 L12,10 L2,8 L1,18 L-1,18 L-2,8 L-12,10 L-10,6 L-18,0 L-12,-2 L-14,-8 L-7,-4 L-9,-14 L-4,-12 Z' transform='translate(40 160) rotate(-40) scale(0.8)' fill='{{2}}'/><path d='M0,-9 Q6,0 0,9 Q-6,0 0,-9 Z' transform='translate(105 95) rotate(35)' fill='{{2}}'/><path d='M0,-9 Q6,0 0,9 Q-6,0 0,-9 Z' transform='translate(110 180) rotate(-20)' fill='{{2}}'/><path d='M0,-9 Q6,0 0,9 Q-6,0 0,-9 Z' transform='translate(190 90) rotate(75)' fill='{{2}}'/></g></svg>", "snow": "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><g opacity='0.22' stroke-linecap='round' stroke-linejoin='round'><g stroke='{{1}}' stroke-width='1.8' fill='none'><line x1='55' y1='55' x2='55' y2='35'/><line x1='55' y1='43' x2='58.9' y2='47.6'/><line x1='55' y1='43' x2='51.1' y2='47.6'/><line x1='55' y1='55' x2='72.3' y2='45'/><line x1='65.4' y1='49' x2='63.3' y2='54.6'/><line x1='65.4' y1='49' x2='59.5' y2='48'/><line x1='55' y1='55' x2='72.3' y2='65'/><line x1='65.4' y1='61' x2='59.5' y2='62'/><line x1='65.4' y1='61' x2='63.3' y2='55.4'/><line x1='55' y1='55' x2='55' y2='75'/><line x1='55' y1='67' x2='51.1' y2='62.4'/><line x1='55' y1='67' x2='58.9' y2='62.4'/><line x1='55' y1='55' x2='37.7' y2='65'/><line x1='44.6' y1='61' x2='46.7' y2='55.4'/><line x1='44.6' y1='61' x2='50.5' y2='62'/><line x1='55' y1='55' x2='37.7' y2='45'/><line x1='44.6' y1='49' x2='50.5' y2='48'/><line x1='44.6' y1='49' x2='46.7' y2='54.6'/></g><g stroke='{{1}}' stroke-width='1.4' fill='none'><line x1='150' y1='140' x2='150' y2='126'/><line x1='150' y1='131.6' x2='152.7' y2='134.8'/><line x1='150' y1='131.6' x2='147.3' y2='134.8'/><line x1='150' y1='140' x2='162.1' y2='133'/><line x1='157.3' y1='135.8' x2='155.8' y2='139.7'/><line x1='157.3' y1='135.8' x2='153.1' y2='135.1'/><line x1='150' y1='140' x2='162.1' y2='147'/><line x1='157.3' y1='144.2' x2='153.1' y2='144.9'/><line x1='157.3' y1='144.2' x2='155.8' y2='140.3'/><line x1='150' y1='140' x2='150' y2='154'/><line x1='150' y1='148.4' x2='147.3' y2='145.2'/><line x1='150' y1='148.4' x2='152.7' y2='145.2'/><line x1='150' y1='140' x2='137.9' y2='147'/><line x1='142.7' y1='144.2' x2='144.2' y2='140.3'/><line x1='142.7' y1='144.2' x2='146.9' y2='144.9'/><line x1='150' y1='140' x2='137.9' y2='133'/><line x1='142.7' y1='135.8' x2='146.9' y2='135.1'/><line x1='142.7' y1='135.8' x2='144.2' y2='139.7'/></g><g stroke='{{1}}' stroke-width='1.2' fill='none'><line x1='160' y1='40' x2='160' y2='33'/><line x1='160' y1='35.8' x2='161.3' y2='37.4'/><line x1='160' y1='35.8' x2='158.7' y2='37.4'/><line x1='160' y1='40' x2='166.1' y2='36.5'/><line x1='163.6' y1='37.9' x2='162.9' y2='39.9'/><line x1='163.6' y1='37.9' x2='161.6' y2='37.5'/><line x1='160' y1='40' x2='166.1' y2='43.5'/><line x1='163.6' y1='42.1' x2='161.6' y2='42.5'/><line x1='163.6' y1='42.1' x2='162.9' y2='40.1'/><line x1='160' y1='40' x2='160' y2='47'/><line x1='160' y1='44.2' x2='158.7' y2='42.6'/><line x1='160' y1='44.2' x2='161.3' y2='42.6'/><line x1='160' y1='40' x2='153.9' y2='43.5'/><line x1='156.4' y1='42.1' x2='157.1' y2='40.1'/><line x1='156.4' y1='42.1' x2='158.4' y2='42.5'/><line x1='160' y1='40' x2='153.9' y2='36.5'/><line x1='156.4' y1='37.9' x2='158.4' y2='37.5'/><line x1='156.4' y1='37.9' x2='157.1' y2='39.9'/></g><g stroke='{{1}}' stroke-width='1.2' fill='none'><line x1='45' y1='160' x2='45' y2='151'/><line x1='45' y1='154.6' x2='46.7' y2='156.7'/><line x1='45' y1='154.6' x2='43.3' y2='156.7'/><line x1='45' y1='160' x2='52.8' y2='155.5'/><line x1='49.7' y1='157.3' x2='48.8' y2='159.8'/><line x1='49.7' y1='157.3' x2='47' y2='156.8'/><line x1='45' y1='160' x2='52.8' y2='164.5'/><line x1='49.7' y1='162.7' x2='47' y2='163.2'/><line x1='49.7' y1='162.7' x2='48.8' y2='160.2'/><line x1='45' y1='160' x2='45' y2='169'/><line x1='45' y1='165.4' x2='43.3' y2='163.3'/><line x1='45' y1='165.4' x2='46.7' y2='163.3'/><line x1='45' y1='160' x2='37.2' y2='164.5'/><line x1='40.3' y1='162.7' x2='41.2' y2='160.2'/><line x1='40.3' y1='162.7' x2='43' y2='163.2'/><line x1='45' y1='160' x2='37.2' y2='155.5'/><line x1='40.3' y1='157.3' x2='43' y2='156.8'/><line x1='40.3' y1='157.3' x2='41.2' y2='159.8'/></g><g fill='{{1}}'><circle cx='105' cy='100' r='2.5'/><circle cx='120' cy='60' r='1.6'/><circle cx='95' cy='185' r='2'/><circle cx='185' cy='95' r='1.6'/><circle cx='15' cy='105' r='1.6'/></g></g></svg>", "hearts": "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><g opacity='0.2' stroke-linecap='round' stroke-linejoin='round'><path d='M0,7 C-14,-3 -9,-15 0,-7 C9,-15 14,-3 0,7 Z' transform='translate(55 55) rotate(-12) scale(1.6)' fill='{{1}}'/><path d='M0,7 C-14,-3 -9,-15 0,-7 C9,-15 14,-3 0,7 Z' transform='translate(150 140) rotate(15) scale(1.2)' fill='{{1}}'/><path d='M0,7 C-14,-3 -9,-15 0,-7 C9,-15 14,-3 0,7 Z' transform='translate(160 40) rotate(10) scale(0.8)' fill='none' stroke='{{2}}' stroke-width='1.7'/><path d='M0,7 C-14,-3 -9,-15 0,-7 C9,-15 14,-3 0,7 Z' transform='translate(45 160) rotate(-20) scale(0.9)' fill='none' stroke='{{2}}' stroke-width='1.6'/><path d='M0,7 C-14,-3 -9,-15 0,-7 C9,-15 14,-3 0,7 Z' transform='translate(105 100) rotate(0) scale(0.5)' fill='{{2}}'/><path d='M0,7 C-14,-3 -9,-15 0,-7 C9,-15 14,-3 0,7 Z' transform='translate(110 182) rotate(20) scale(0.45)' fill='{{1}}'/><path d='M0,7 C-14,-3 -9,-15 0,-7 C9,-15 14,-3 0,7 Z' transform='translate(188 95) rotate(-15) scale(0.45)' fill='{{1}}'/></g></svg>", "shamrocks": "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><g opacity='0.2' stroke-linecap='round' stroke-linejoin='round'><g transform='translate(55 58) rotate(-10) scale(1.4)' fill='{{1}}'><path d='M0,0 C-11,-6 -11,-17 -3.5,-17 C-1.5,-17 0,-15 0,-13.5 C0,-15 1.5,-17 3.5,-17 C11,-17 11,-6 0,0 Z' transform='rotate(0)'/><path d='M0,0 C-11,-6 -11,-17 -3.5,-17 C-1.5,-17 0,-15 0,-13.5 C0,-15 1.5,-17 3.5,-17 C11,-17 11,-6 0,0 Z' transform='rotate(120)'/><path d='M0,0 C-11,-6 -11,-17 -3.5,-17 C-1.5,-17 0,-15 0,-13.5 C0,-15 1.5,-17 3.5,-17 C11,-17 11,-6 0,0 Z' transform='rotate(240)'/><path d='M0,0 Q4,10 2,18' fill='none' stroke='{{1}}' stroke-width='2'/></g><g transform='translate(150 138) rotate(20) scale(1.1)' fill='{{1}}'><path d='M0,0 C-11,-6 -11,-17 -3.5,-17 C-1.5,-17 0,-15 0,-13.5 C0,-15 1.5,-17 3.5,-17 C11,-17 11,-6 0,0 Z' transform='rotate(0)'/><path d='M0,0 C-11,-6 -11,-17 -3.5,-17 C-1.5,-17 0,-15 0,-13.5 C0,-15 1.5,-17 3.5,-17 C11,-17 11,-6 0,0 Z' transform='rotate(120)'/><path d='M0,0 C-11,-6 -11,-17 -3.5,-17 C-1.5,-17 0,-15 0,-13.5 C0,-15 1.5,-17 3.5,-17 C11,-17 11,-6 0,0 Z' transform='rotate(240)'/><path d='M0,0 Q4,10 2,18' fill='none' stroke='{{1}}' stroke-width='2'/></g><g transform='translate(160 38) rotate(40) scale(0.6)' fill='{{2}}'><path d='M0,0 C-11,-6 -11,-17 -3.5,-17 C-1.5,-17 0,-15 0,-13.5 C0,-15 1.5,-17 3.5,-17 C11,-17 11,-6 0,0 Z' transform='rotate(0)'/><path d='M0,0 C-11,-6 -11,-17 -3.5,-17 C-1.5,-17 0,-15 0,-13.5 C0,-15 1.5,-17 3.5,-17 C11,-17 11,-6 0,0 Z' transform='rotate(120)'/><path d='M0,0 C-11,-6 -11,-17 -3.5,-17 C-1.5,-17 0,-15 0,-13.5 C0,-15 1.5,-17 3.5,-17 C11,-17 11,-6 0,0 Z' transform='rotate(240)'/><path d='M0,0 Q4,10 2,18' fill='none' stroke='{{2}}' stroke-width='2'/></g><g transform='translate(42 160) rotate(-30) scale(0.7)' fill='{{2}}'><path d='M0,0 C-11,-6 -11,-17 -3.5,-17 C-1.5,-17 0,-15 0,-13.5 C0,-15 1.5,-17 3.5,-17 C11,-17 11,-6 0,0 Z' transform='rotate(0)'/><path d='M0,0 C-11,-6 -11,-17 -3.5,-17 C-1.5,-17 0,-15 0,-13.5 C0,-15 1.5,-17 3.5,-17 C11,-17 11,-6 0,0 Z' transform='rotate(120)'/><path d='M0,0 C-11,-6 -11,-17 -3.5,-17 C-1.5,-17 0,-15 0,-13.5 C0,-15 1.5,-17 3.5,-17 C11,-17 11,-6 0,0 Z' transform='rotate(240)'/><path d='M0,0 Q4,10 2,18' fill='none' stroke='{{2}}' stroke-width='2'/></g><g fill='{{2}}'><circle cx='105' cy='100' r='2'/><circle cx='110' cy='185' r='1.6'/><circle cx='188' cy='92' r='1.6'/></g></g></svg>", "eggs": "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><g opacity='0.2' stroke-linecap='round' stroke-linejoin='round'><g transform='translate(55 58) rotate(-12) scale(1.6)'><path d='M0,-13 C8,-13 10,2 10,5 C10,11 5,14 0,14 C-5,14 -10,11 -10,5 C-10,2 -8,-13 0,-13 Z' fill='{{1}}'/><path d='M-9.5,1 L-6,-2 L-2,1 L2,-2 L6,1 L9.5,-2' fill='none' stroke='{{2}}' stroke-width='1.6'/><path d='M-9,7 L9,7' stroke='{{2}}' stroke-width='1.6'/></g><g transform='translate(150 138) rotate(15) scale(1.25)'><path d='M0,-13 C8,-13 10,2 10,5 C10,11 5,14 0,14 C-5,14 -10,11 -10,5 C-10,2 -8,-13 0,-13 Z' fill='{{2}}'/><path d='M-9.5,1 L-6,-2 L-2,1 L2,-2 L6,1 L9.5,-2' fill='none' stroke='{{1}}' stroke-width='1.6'/><path d='M-9,7 L9,7' stroke='{{1}}' stroke-width='1.6'/></g><g transform='translate(160 38) rotate(8) scale(0.7)'><path d='M0,-13 C8,-13 10,2 10,5 C10,11 5,14 0,14 C-5,14 -10,11 -10,5 C-10,2 -8,-13 0,-13 Z' fill='{{1}}'/><path d='M-9.5,1 L-6,-2 L-2,1 L2,-2 L6,1 L9.5,-2' fill='none' stroke='{{2}}' stroke-width='1.6'/><path d='M-9,7 L9,7' stroke='{{2}}' stroke-width='1.6'/></g><g transform='translate(42 160) rotate(-18) scale(0.8)'><path d='M0,-13 C8,-13 10,2 10,5 C10,11 5,14 0,14 C-5,14 -10,11 -10,5 C-10,2 -8,-13 0,-13 Z' fill='{{2}}'/><path d='M-9.5,1 L-6,-2 L-2,1 L2,-2 L6,1 L9.5,-2' fill='none' stroke='{{1}}' stroke-width='1.6'/><path d='M-9,7 L9,7' stroke='{{1}}' stroke-width='1.6'/></g><ellipse cx='105' cy='96' rx='3' ry='4.2' transform='rotate(0 105 96)' fill='{{1}}'/><ellipse cx='108.8' cy='98.8' rx='3' ry='4.2' transform='rotate(72 108.8 98.8)' fill='{{1}}'/><ellipse cx='107.4' cy='103.2' rx='3' ry='4.2' transform='rotate(144 107.4 103.2)' fill='{{1}}'/><ellipse cx='102.6' cy='103.2' rx='3' ry='4.2' transform='rotate(216 102.6 103.2)' fill='{{1}}'/><ellipse cx='101.2' cy='98.8' rx='3' ry='4.2' transform='rotate(288 101.2 98.8)' fill='{{1}}'/><circle cx='105' cy='100' r='1.8' fill='{{2}}'/><g fill='{{1}}'><circle cx='110' cy='185' r='1.8'/><circle cx='188' cy='92' r='1.8'/></g></g></svg>", "stars": "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><g opacity='0.2' stroke-linecap='round' stroke-linejoin='round'><polygon points='52.2,38.2 58.9,50.6 73,49.2 63.3,59.5 68.9,72.4 56.2,66.3 45.6,75.7 47.5,61.7 35.3,54.5 49.2,52' fill='{{1}}'/><polygon points='153.1,125.3 154.7,135.8 164.9,138.4 155.5,143.2 156.1,153.7 148.7,146.2 138.9,150 143.7,140.7 137,132.5 147.4,134.2' fill='{{2}}'/><polygon points='160,32 162,37.3 167.6,37.5 163.2,41 164.7,46.5 160,43.4 155.3,46.5 156.8,41 152.4,37.5 158,37.3' fill='{{1}}'/><polygon points='39.7,151.3 43.4,156.5 49.5,155.1 45.8,160.2 49,165.7 43,163.7 38.8,168.4 38.8,162.1 33,159.5 39.1,157.6' fill='{{2}}'/><polygon points='105,96 106,98.6 108.8,98.8 106.6,100.5 107.4,103.2 105,101.7 102.6,103.2 103.4,100.5 101.2,98.8 104,98.6' fill='{{1}}'/><polygon points='110,181.5 110.9,183.8 113.3,183.9 111.4,185.5 112.1,187.8 110,186.5 107.9,187.8 108.6,185.5 106.7,183.9 109.1,183.8' fill='{{2}}'/><polygon points='188,88.5 188.9,90.8 191.3,90.9 189.4,92.5 190.1,94.8 188,93.5 185.9,94.8 186.6,92.5 184.7,90.9 187.1,90.8' fill='{{1}}'/><g fill='none' stroke='{{2}}' stroke-width='1.4'><path d='M80 95 Q100 80 125 85'/><path d='M15 105 Q30 98 45 102'/></g></g></svg>", "halloween": "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><g opacity='0.2' stroke-linecap='round' stroke-linejoin='round'><g transform='translate(55 62) scale(1.7)'><ellipse cx='-7' cy='2' rx='8' ry='11' fill='{{1}}'/><ellipse cx='7' cy='2' rx='8' ry='11' fill='{{1}}'/><ellipse cx='0' cy='2' rx='8' ry='12' fill='{{1}}'/><path d='M0,-9 Q1,-15 5,-16' fill='none' stroke='{{2}}' stroke-width='2.4'/></g><g transform='translate(150 145) scale(1.2)'><ellipse cx='-7' cy='2' rx='8' ry='11' fill='{{1}}'/><ellipse cx='7' cy='2' rx='8' ry='11' fill='{{1}}'/><ellipse cx='0' cy='2' rx='8' ry='12' fill='{{1}}'/><path d='M0,-9 Q1,-15 5,-16' fill='none' stroke='{{2}}' stroke-width='2.4'/></g><path d='M0,2 C-3,-3 -8,-4 -12,-1 C-11,-6 -17,-8 -22,-4 C-18,-3 -16,1 -15,4 C-11,1 -6,2 0,8 C6,2 11,1 15,4 C16,1 18,-3 22,-4 C17,-8 11,-6 12,-1 C8,-4 3,-3 0,2 Z M-2,-1 L-3,-5 L0,-2 L3,-5 L2,-1 Z' transform='translate(158 42) rotate(-10) scale(1.1)' fill='{{2}}'/><path d='M0,2 C-3,-3 -8,-4 -12,-1 C-11,-6 -17,-8 -22,-4 C-18,-3 -16,1 -15,4 C-11,1 -6,2 0,8 C6,2 11,1 15,4 C16,1 18,-3 22,-4 C17,-8 11,-6 12,-1 C8,-4 3,-3 0,2 Z M-2,-1 L-3,-5 L0,-2 L3,-5 L2,-1 Z' transform='translate(48 158) rotate(12) scale(0.8)' fill='{{2}}'/><path d='M0,2 C-3,-3 -8,-4 -12,-1 C-11,-6 -17,-8 -22,-4 C-18,-3 -16,1 -15,4 C-11,1 -6,2 0,8 C6,2 11,1 15,4 C16,1 18,-3 22,-4 C17,-8 11,-6 12,-1 C8,-4 3,-3 0,2 Z M-2,-1 L-3,-5 L0,-2 L3,-5 L2,-1 Z' transform='translate(108 98) rotate(-5) scale(0.55)' fill='{{1}}'/><g fill='{{2}}'><circle cx='110' cy='185' r='1.6'/><circle cx='188' cy='92' r='1.8'/><circle cx='15' cy='105' r='1.4'/></g></g></svg>", "christmas": "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><g opacity='0.22' stroke-linecap='round' stroke-linejoin='round'><g transform='translate(50 58) rotate(-25) scale(1.4)' stroke='{{1}}' stroke-width='1.6' fill='none'><path d='M0,-18 L0,18'/><path d='M0,-14 L-7,-19 M0,-14 L7,-19'/><path d='M0,-10 L-7,-15 M0,-10 L7,-15'/><path d='M0,-6 L-7,-11 M0,-6 L7,-11'/><path d='M0,-2 L-7,-7 M0,-2 L7,-7'/><path d='M0,2 L-7,-3 M0,2 L7,-3'/><path d='M0,6 L-7,1 M0,6 L7,1'/><path d='M0,10 L-7,5 M0,10 L7,5'/><path d='M0,14 L-7,9 M0,14 L7,9'/></g><g transform='translate(150 140) rotate(30) scale(1.1)' stroke='{{1}}' stroke-width='1.6' fill='none'><path d='M0,-18 L0,18'/><path d='M0,-14 L-7,-19 M0,-14 L7,-19'/><path d='M0,-10 L-7,-15 M0,-10 L7,-15'/><path d='M0,-6 L-7,-11 M0,-6 L7,-11'/><path d='M0,-2 L-7,-7 M0,-2 L7,-7'/><path d='M0,2 L-7,-3 M0,2 L7,-3'/><path d='M0,6 L-7,1 M0,6 L7,1'/><path d='M0,10 L-7,5 M0,10 L7,5'/><path d='M0,14 L-7,9 M0,14 L7,9'/></g><g transform='translate(78 82) scale(1.1)'><circle cx='0' cy='2' r='8' fill='{{2}}'/><rect x='-3' y='-9' width='6' height='4' rx='1' fill='{{1}}'/><path d='M-6,0 Q0,4 6,0' fill='none' stroke='{{1}}' stroke-width='1'/></g><g transform='translate(168 112) scale(0.9)'><circle cx='0' cy='2' r='8' fill='{{2}}'/><rect x='-3' y='-9' width='6' height='4' rx='1' fill='{{1}}'/><path d='M-6,0 Q0,4 6,0' fill='none' stroke='{{1}}' stroke-width='1'/></g><polygon points='160,30 162,35.3 167.6,35.5 163.2,39 164.7,44.5 160,41.4 155.3,44.5 156.8,39 152.4,35.5 158,35.3' fill='{{1}}'/><g transform='translate(42 162) scale(0.8)'><circle cx='0' cy='2' r='8' fill='{{2}}'/><rect x='-3' y='-9' width='6' height='4' rx='1' fill='{{1}}'/><path d='M-6,0 Q0,4 6,0' fill='none' stroke='{{1}}' stroke-width='1'/></g><g fill='{{1}}'><circle cx='110' cy='185' r='1.6'/><circle cx='188' cy='88' r='1.6'/><circle cx='112' cy='100' r='2'/></g></g></svg>", "newyear": "<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><g opacity='0.22' stroke-linecap='round' stroke-linejoin='round'><g stroke='{{1}}' stroke-width='1.6' fill='none'><line x1='63.4' y1='58' x2='79' y2='58'/><line x1='62.3' y1='62.2' x2='75.8' y2='70'/><line x1='59.2' y1='65.3' x2='67' y2='78.8'/><line x1='55' y1='66.4' x2='55' y2='82'/><line x1='50.8' y1='65.3' x2='43' y2='78.8'/><line x1='47.7' y1='62.2' x2='34.2' y2='70'/><line x1='46.6' y1='58' x2='31' y2='58'/><line x1='47.7' y1='53.8' x2='34.2' y2='46'/><line x1='50.8' y1='50.7' x2='43' y2='37.2'/><line x1='55' y1='49.6' x2='55' y2='34'/><line x1='59.2' y1='50.7' x2='67' y2='37.2'/><line x1='62.3' y1='53.8' x2='75.8' y2='46'/></g><g stroke='{{2}}' stroke-width='1.6' fill='none'><line x1='155.9' y1='140' x2='167' y2='140'/><line x1='155.2' y1='143' x2='164.7' y2='148.5'/><line x1='153' y1='145.2' x2='158.5' y2='154.7'/><line x1='150' y1='145.9' x2='150' y2='157'/><line x1='147' y1='145.2' x2='141.5' y2='154.7'/><line x1='144.8' y1='143' x2='135.3' y2='148.5'/><line x1='144.1' y1='140' x2='133' y2='140'/><line x1='144.8' y1='137' x2='135.3' y2='131.5'/><line x1='147' y1='134.8' x2='141.5' y2='125.3'/><line x1='150' y1='134.1' x2='150' y2='123'/><line x1='153' y1='134.8' x2='158.5' y2='125.3'/><line x1='155.2' y1='137' x2='164.7' y2='131.5'/></g><path d='M0,-12 Q1,-1 12,0 Q1,1 0,12 Q-1,1 -12,0 Q-1,-1 0,-12 Z' transform='translate(160 40) scale(1)' fill='{{1}}'/><path d='M0,-12 Q1,-1 12,0 Q1,1 0,12 Q-1,1 -12,0 Q-1,-1 0,-12 Z' transform='translate(42 160) scale(0.8)' fill='{{2}}'/><path d='M0,-12 Q1,-1 12,0 Q1,1 0,12 Q-1,1 -12,0 Q-1,-1 0,-12 Z' transform='translate(105 100) scale(0.5)' fill='{{1}}'/><path d='M0,-12 Q1,-1 12,0 Q1,1 0,12 Q-1,1 -12,0 Q-1,-1 0,-12 Z' transform='translate(110 185) scale(0.4)' fill='{{2}}'/><path d='M0,-12 Q1,-1 12,0 Q1,1 0,12 Q-1,1 -12,0 Q-1,-1 0,-12 Z' transform='translate(188 92) scale(0.4)' fill='{{1}}'/></g></svg>"};
+var BOTE_THEMES={"summer": {"bg": "#1B3A2D", "leaf": "#74C69A", "muted": "#8FBF9F", "hint": "#6B9E7F", "accent": "#D4AF37", "accent2": "#C49A1A", "pattern": "leaves", "c1": "#74C69A", "c2": "#D4AF37", "emoji": "🌿", "note": "", "bgRgb": "27,58,45", "leafRgb": "116,198,154", "accentRgb": "212,175,55"}, "spring": {"bg": "#2C2238", "leaf": "#F2A7C3", "muted": "#D7B3C8", "hint": "#B08DA3", "accent": "#F4C95D", "accent2": "#E0A93B", "pattern": "blossoms", "c1": "#F2A7C3", "c2": "#F4C95D", "emoji": "🌸", "note": "", "bgRgb": "44,34,56", "leafRgb": "242,167,195", "accentRgb": "244,201,93"}, "fall": {"bg": "#2B1D14", "leaf": "#E08A4B", "muted": "#D6B08C", "hint": "#A9825F", "accent": "#E8A33D", "accent2": "#C97F22", "pattern": "maple", "c1": "#E08A4B", "c2": "#C9A24B", "emoji": "🍂", "note": "", "bgRgb": "43,29,20", "leafRgb": "224,138,75", "accentRgb": "232,163,61"}, "winter": {"bg": "#15263A", "leaf": "#9CC8EC", "muted": "#B4C9DC", "hint": "#7F98AF", "accent": "#DCE8F3", "accent2": "#A9C4DC", "pattern": "snow", "c1": "#CFE4F7", "c2": "#CFE4F7", "emoji": "❄️", "note": "", "bgRgb": "21,38,58", "leafRgb": "156,200,236", "accentRgb": "220,232,243"}, "valentines": {"bg": "#35141F", "leaf": "#F27C9B", "muted": "#E3AFC0", "hint": "#B67F91", "accent": "#F6B7C6", "accent2": "#E68AA3", "pattern": "hearts", "c1": "#F27C9B", "c2": "#F6B7C6", "emoji": "💝", "note": "Happy Valentine’s Day, babe 💝", "bgRgb": "53,20,31", "leafRgb": "242,124,155", "accentRgb": "246,183,198"}, "stpatricks": {"bg": "#0F3320", "leaf": "#5FD08A", "muted": "#9FD3B2", "hint": "#6FA387", "accent": "#E4C24A", "accent2": "#C9A227", "pattern": "shamrocks", "c1": "#5FD08A", "c2": "#E4C24A", "emoji": "☘️", "note": "Lucky to have you ☘️", "bgRgb": "15,51,32", "leafRgb": "95,208,138", "accentRgb": "228,194,74"}, "easter": {"bg": "#262B44", "leaf": "#B9D7F2", "muted": "#C7C3E0", "hint": "#9590B8", "accent": "#F5D57A", "accent2": "#E7B94F", "pattern": "eggs", "c1": "#F2B6D3", "c2": "#B9E3C6", "emoji": "🐣", "note": "Happy Easter, babe 🐣", "bgRgb": "38,43,68", "leafRgb": "185,215,242", "accentRgb": "245,213,122"}, "july4": {"bg": "#13223F", "leaf": "#C9D6EA", "muted": "#B9C6DA", "hint": "#8494AE", "accent": "#F2C14E", "accent2": "#DDA52F", "pattern": "stars", "c1": "#E8EEF7", "c2": "#E5484D", "emoji": "🎆", "note": "Happy 4th of July 🎆", "bgRgb": "19,34,63", "leafRgb": "201,214,234", "accentRgb": "242,193,78"}, "halloween": {"bg": "#1D1426", "leaf": "#F28C28", "muted": "#CBB1DE", "hint": "#9B84AE", "accent": "#F7A440", "accent2": "#E07B12", "pattern": "halloween", "c1": "#F28C28", "c2": "#B48AD6", "emoji": "🎃", "note": "Happy Halloween, babe 🎃", "bgRgb": "29,20,38", "leafRgb": "242,140,40", "accentRgb": "247,164,64"}, "thanksgiving": {"bg": "#2E1F12", "leaf": "#D9783A", "muted": "#D6B08C", "hint": "#A9825F", "accent": "#E3A148", "accent2": "#C47E24", "pattern": "maple", "c1": "#D9783A", "c2": "#C9A24B", "emoji": "🦃", "note": "Grateful for you, babe 🦃", "bgRgb": "46,31,18", "leafRgb": "217,120,58", "accentRgb": "227,161,72"}, "christmas": {"bg": "#10301F", "leaf": "#6FBF8A", "muted": "#A9CDB5", "hint": "#78A388", "accent": "#E3B341", "accent2": "#C89526", "pattern": "christmas", "c1": "#6FBF8A", "c2": "#E05A5A", "emoji": "🎄", "note": "Merry Christmas, babe 🎄", "bgRgb": "16,48,31", "leafRgb": "111,191,138", "accentRgb": "227,179,65"}, "newyear": {"bg": "#141A2E", "leaf": "#F3D47A", "muted": "#CFC7A5", "hint": "#9C957A", "accent": "#F3D47A", "accent2": "#D9B44F", "pattern": "newyear", "c1": "#F3D47A", "c2": "#E8EEF7", "emoji": "✨", "note": "Happy New Year, babe 🥂", "bgRgb": "20,26,46", "leafRgb": "243,212,122", "accentRgb": "243,212,122"}};
+function boteEaster(y){ /* Anonymous Gregorian computus */
+  var a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),
+      h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),
+      n=h+l-7*m+114;
+  return new Date(y,Math.floor(n/31)-1,(n%31)+1);
+}
+function boteThanksgiving(y){ var d=new Date(y,10,1); return new Date(y,10,1+((4-d.getDay()+7)%7)+21); }
+function botePickTheme(now){
+  var y=now.getFullYear(), md=(now.getMonth()+1)*100+now.getDate();
+  var today=new Date(y,now.getMonth(),now.getDate());
+  function near(day,before,after){ var s=new Date(day),e=new Date(day); s.setDate(s.getDate()-before); e.setDate(e.getDate()+after); return today>=s&&today<=e; }
+  if(md>=1230||md<=102) return 'newyear';
+  if(md>=1201&&md<=1229) return 'christmas';
+  if(md>=207&&md<=214) return 'valentines';
+  if(md>=314&&md<=317) return 'stpatricks';
+  if(near(boteEaster(y),7,1)) return 'easter';
+  if(md>=630&&md<=705) return 'july4';
+  if(md>=1015&&md<=1031) return 'halloween';
+  if(near(boteThanksgiving(y),3,3)) return 'thanksgiving';
+  if(md>=320&&md<=620) return 'spring';
+  if(md>=621&&md<=921) return 'summer';
+  if(md>=922&&md<=1220) return 'fall';
+  return 'winter';
+}
+(function(){
+  var q=(location.search.match(/[?&]theme=([a-z0-9]+)/i)||[])[1];
+  q=q&&q.toLowerCase();
+  var name=(q&&BOTE_THEMES[q])?q:botePickTheme(new Date());
+  var t=BOTE_THEMES[name];
+  window.BOTE_THEME=t; window.BOTE_THEME_NAME=name;
+  var svg=BOTE_PATTERNS[t.pattern].split('{{1}}').join(t.c1).split('{{2}}').join(t.c2);
+  var r=document.documentElement.style;
+  r.setProperty('--bg',t.bg); r.setProperty('--bg-rgb',t.bgRgb);
+  r.setProperty('--leaf',t.leaf); r.setProperty('--leaf-rgb',t.leafRgb);
+  r.setProperty('--muted',t.muted); r.setProperty('--hint',t.hint);
+  r.setProperty('--accent',t.accent); r.setProperty('--accent-rgb',t.accentRgb);
+  r.setProperty('--accent2',t.accent2); r.setProperty('--on-accent',t.bg);
+  r.setProperty('--pattern','url("data:image/svg+xml,'+encodeURIComponent(svg)+'")');
+  var m=document.querySelector('meta[name="theme-color"]'); if(m) m.setAttribute('content',t.bg);
+})();
+</script>
 </head>
 <body>
 
@@ -105,8 +158,9 @@ footer{text-align:center;padding:24px 0 4px;font-size:11px;color:rgba(116,198,15
     <h1>Babes On Time<br>to <em>Everything</em></h1>
     <div class="sub">Magic Calculator</div>
     <p class="tagline">Tell me where you're going.<br>I'll tell you when to start getting gorgeous.</p>
+    <p class="season-note" id="season-note"></p>
   </header>
-  <div class="divider"><span></span>&#127807;<span></span></div>
+  <div class="divider"><span></span><i id="season-emoji">&#127807;</i><span></span></div>
 
   <div class="card">
     <span class="lbl">What's the appointment?</span>
@@ -119,11 +173,12 @@ footer{text-align:center;padding:24px 0 4px;font-size:11px;color:rgba(116,198,15
       <input type="text" id="f-dest" placeholder="Business name or address&hellip;" autocomplete="off"/>
       <div class="ac-list" id="ac-list"></div>
     </div>
+    <p class="hint" id="dest-hint" style="display:none;"></p>
   </div>
 
   <div class="card">
     <span class="lbl">Leaving from</span>
-    <input type="text" id="f-origin" value="3101 N Oxnard Blvd, Oxnard, CA 93036"/>
+    <input type="text" id="f-origin"/>
   </div>
 
   <div class="row2">
@@ -209,6 +264,8 @@ footer{text-align:center;padding:24px 0 4px;font-size:11px;color:rgba(116,198,15
   if(isIOSWebView){ document.getElementById('safari-banner').style.display='flex'; }
 })();
 
+var HOME='3101 N Oxnard Blvd, Oxnard, CA 93036'; // default "Leaving from" address (only place it's set)
+
 function $(id){ return document.getElementById(id); }
 function pz(n){ return n<10?'0'+n:''+n; }
 
@@ -225,16 +282,20 @@ function fmtD(d){
 function icsDate(d){
   return ''+d.getUTCFullYear()+pz(d.getUTCMonth()+1)+pz(d.getUTCDate())+'T'+pz(d.getUTCHours())+pz(d.getUTCMinutes())+'00Z';
 }
+function icsEsc(s){ return String(s||'').replace(/\\/g,'\\\\').replace(/;/g,'\\;').replace(/,/g,'\\,').replace(/\r?\n/g,'\\n'); }
 function makeICS(title,desc,loc,start,end,alarmMins){
+  var uid=Date.now()+'-'+Math.random().toString(36).slice(2)+'@bote';
   var s='BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//BOTE//EN\r\nBEGIN:VEVENT\r\n';
+  s+='UID:'+uid+'\r\n';
+  s+='DTSTAMP:'+icsDate(new Date())+'\r\n';
   s+='DTSTART:'+icsDate(start)+'\r\n';
   s+='DTEND:'+icsDate(end)+'\r\n';
-  s+='SUMMARY:'+title+'\r\n';
-  s+='DESCRIPTION:'+desc+'\r\n';
-  s+='LOCATION:'+(loc||'')+'\r\n';
+  s+='SUMMARY:'+icsEsc(title)+'\r\n';
+  s+='DESCRIPTION:'+icsEsc(desc)+'\r\n';
+  s+='LOCATION:'+icsEsc(loc)+'\r\n';
   var alarms=Array.isArray(alarmMins)?alarmMins:(alarmMins?[alarmMins]:[]);
   alarms.forEach(function(mins){
-    s+='BEGIN:VALARM\r\nTRIGGER:-PT'+mins+'M\r\nACTION:DISPLAY\r\nDESCRIPTION:'+title+'\r\nEND:VALARM\r\n';
+    s+='BEGIN:VALARM\r\nTRIGGER:-PT'+mins+'M\r\nACTION:DISPLAY\r\nDESCRIPTION:'+icsEsc(title)+'\r\nEND:VALARM\r\n';
   });
   s+='END:VEVENT\r\nEND:VCALENDAR';
   return s;
@@ -253,8 +314,10 @@ function showPg(id){
   window.scrollTo(0,0);
 }
 
+function originVal(){ return $('f-origin').value.trim()||HOME; }
+
 function updateMapsURL(){
-  var org=$('f-origin').value.trim()||'3101 N Oxnard Blvd, Oxnard, CA 93036';
+  var org=originVal();
   var dst=$('f-dest').value.trim();
   var url=dst
     ?'maps://?saddr='+encodeURIComponent(org)+'&daddr='+encodeURIComponent(dst)+'&dirflg=d'
@@ -266,7 +329,7 @@ function go(){
   hideErr();
   var name=$('f-name').value.trim()||'Appointment';
   var dest=$('f-dest').value.trim();
-  var org=$('f-origin').value.trim()||'3101 N Oxnard Blvd, Oxnard, CA 93036';
+  var org=originVal();
   var dv=$('f-date').value;
   var tv=$('f-time').value;
   var ready=parseInt($('f-ready').value,10);
@@ -282,13 +345,13 @@ function go(){
   var buffDrive=drive+10;
   var leave=new Date(appt.getTime()-buffDrive*60000);
   var readyT=new Date(appt.getTime()-(buffReady+buffDrive)*60000);
-  $('r-title').textContent=name+' &#128081;';
+  $('r-title').textContent=name+' \uD83D\uDC51';
   $('r-date').textContent=fmtD(appt);
   $('r-ready').textContent=fmt(readyT);
   $('r-leave').textContent=fmt(leave);
   $('r-appt').textContent=fmt(appt);
   var dl=fmtD(appt);
-  $('r-bkdn').innerHTML='<span>Get-ready: '+ready+' min &rarr; <strong>'+buffReady+' min</strong> (&times;1.5 + 10 min)</span>'+'<span>Drive: '+drive+' min + 10 min buffer = <strong>'+buffDrive+' min</strong></span>';
+  $('r-bkdn').innerHTML='<span>Get-ready: '+ready+' min &rarr; <strong>'+buffReady+' min</strong> (&times;1.5 + 10 min)</span><br>'+'<span>Drive: '+drive+' min + 10 min buffer = <strong>'+buffDrive+' min</strong></span>';
   $('c-ready-t').textContent=fmt(readyT)+' - '+dl;
   $('c-leave-t').textContent=fmt(leave)+' - '+dl;
   $('c-appt-title').textContent=name;
@@ -298,10 +361,17 @@ function go(){
   var aEnd=new Date(appt.getTime()+60*60000);
   setICS($('c-ready'),makeICS('Get ready for '+name,'Leave by '+fmt(leave)+'.','' ,readyT,rEnd,[10,0]),'get_ready.ics');
   setICS($('c-leave'),makeICS('Leave for '+name+'!','Appointment at '+fmt(appt)+' at '+dest+'.',dest,leave,lEnd,[15,5]),'leave_now.ics');
-  setICS($('c-appt'),makeICS(name,'At '+dest+'. Leave by '+fmt(leave)+'.',dest,appt,aEnd,10),name.replace(/\s+/g,'_')+'.ics');
+  setICS($('c-appt'),makeICS(name,'At '+dest+'. Leave by '+fmt(leave)+'.',dest,appt,aEnd,10),(name.replace(/[^A-Za-z0-9]+/g,'_')||'Appointment')+'.ics');
   $('r-maps').setAttribute('data-url','maps://?saddr='+encodeURIComponent(org)+'&daddr='+encodeURIComponent(dest)+'&dirflg=d');
   showPg('pg-results');
 }
+
+// Seasonal touches on the page itself
+(function(){
+  var t=window.BOTE_THEME; if(!t) return;
+  $('season-emoji').textContent=t.emoji;
+  if(t.note){ $('season-note').textContent=t.note; $('season-note').style.display='block'; }
+})();
 
 // Button wiring
 $('magic-btn').addEventListener('click',go);
@@ -314,9 +384,11 @@ $('f-date').addEventListener('change',function(){ autoDriveTime(); });
 $('f-time').addEventListener('change',function(){ autoDriveTime(); });
 $('f-origin').addEventListener('change',function(){ updateMapsURL(); autoDriveTime(); });
 $('f-dest').addEventListener('input',function(){ updateMapsURL(); doAC(this.value.trim()); });
-$('f-dest').addEventListener('change',function(){ updateMapsURL(); });
+// Typed an address without tapping a suggestion? Still calculate the drive time.
+$('f-dest').addEventListener('change',function(){ updateMapsURL(); setTimeout(autoDriveTime,400); });
 
-// Set today's date
+// Defaults
+$('f-origin').value=HOME;
 var td=new Date();
 $('f-date').value=td.getFullYear()+'-'+pz(td.getMonth()+1)+'-'+pz(td.getDate());
 updateMapsURL();
@@ -324,52 +396,124 @@ updateMapsURL();
 // Show form page on load
 showPg('pg-form');
 
-// Google Places Autocomplete
-var acService=null, sessionToken=null;
-function initGoogleAC(){
-  if(window.google&&window.google.maps&&window.google.maps.places){
-    acService=new google.maps.places.AutocompleteService();
-    sessionToken=new google.maps.places.AutocompleteSessionToken();
-  }
+/* ===== Google Maps =====
+   Uses Google's current APIs first (Places API (New) + Routes API),
+   then falls back to the older deprecated services if those aren't enabled.
+   Any Google error is shown on screen so problems aren't silent. */
+var G={ready:false,places:null,routes:null,token:null,acMode:'new',pendingDrive:false};
+
+function errText(e){
+  var s=(e&&(e.code||e.status||e.message))||String(e||'unknown error');
+  s=String(s); return s.length>70?s.slice(0,70)+'\u2026':s;
+}
+function setDriveHint(msg){ $('drive-hint').textContent=msg; }
+function setDestHint(msg){ var h=$('dest-hint'); if(msg){ h.textContent=msg; h.style.display='block'; } else { h.style.display='none'; } }
+
+// Google calls this if the API key is rejected (billing off, key restrictions, or disabled APIs)
+window.gm_authFailure=function(){
+  G.authFailed=true;
+  setDriveHint('Google rejected the API key \u2014 check billing and key settings in Google Cloud. Enter drive time manually for now.');
+  setDestHint('Address suggestions are off (Google API key problem).');
+};
+function mapsLoadFailed(){
+  G.loadFailed=true;
+  setDriveHint('Google Maps didn\u2019t load (check your connection). Enter drive time manually.');
+}
+setTimeout(function(){ if(!G.ready&&!G.authFailed) mapsLoadFailed(); },10000);
+
+function initGoogle(){
+  var gm=window.google&&window.google.maps;
+  if(!gm){ mapsLoadFailed(); return; }
+  var imp=gm.importLibrary?function(n){ return gm.importLibrary(n).catch(function(){ return null; }); }:function(n){ return Promise.resolve(gm[n]||null); };
+  Promise.all([imp('places'),imp('routes')]).then(function(libs){
+    G.places=libs[0]||gm.places||null;
+    G.routes=libs[1]||null;
+    if(G.places&&G.places.AutocompleteSessionToken) G.token=new G.places.AutocompleteSessionToken();
+    G.ready=true; G.loadFailed=false;
+    if(G.pendingDrive){ G.pendingDrive=false; autoDriveTime(); }
+  });
 }
 
-var acT=null;
+// --- Autocomplete: new API, then legacy fallback ---
+function acNew(q){
+  return G.places.AutocompleteSuggestion.fetchAutocompleteSuggestions({input:q,sessionToken:G.token,includedRegionCodes:['us']})
+    .then(function(res){
+      return (res.suggestions||[]).filter(function(s){ return s.placePrediction; }).map(function(s){
+        var p=s.placePrediction;
+        var desc=p.text?p.text.text:'';
+        return {
+          main:p.mainText?p.mainText.text:desc,
+          sec:p.secondaryText?p.secondaryText.text:'',
+          desc:desc,
+          resolve:function(done){
+            var place=p.toPlace();
+            place.fetchFields({fields:['formattedAddress']})
+              .then(function(){ done(place.formattedAddress||null); })
+              .catch(function(){ done(null); });
+          }
+        };
+      });
+    });
+}
+function acLegacy(q){
+  return new Promise(function(resolve,reject){
+    var gp=window.google.maps.places;
+    if(!gp||!gp.AutocompleteService){ reject(new Error('Places library unavailable')); return; }
+    if(!G.legacySvc){ G.legacySvc=new gp.AutocompleteService(); G.legacyToken=new gp.AutocompleteSessionToken(); }
+    G.legacySvc.getPlacePredictions({input:q,sessionToken:G.legacyToken,componentRestrictions:{country:'us'}},function(preds,status){
+      if(status==='ZERO_RESULTS'){ resolve([]); return; }
+      if(status!=='OK'||!preds){ reject(new Error(status)); return; }
+      resolve(preds.map(function(p){
+        return {
+          main:p.structured_formatting.main_text||p.description,
+          sec:p.structured_formatting.secondary_text||'',
+          desc:p.description,
+          resolve:function(done){
+            var svc=new gp.PlacesService(document.createElement('div'));
+            svc.getDetails({placeId:p.place_id,fields:['formatted_address'],sessionToken:G.legacyToken},function(pl,st){
+              done(st==='OK'&&pl?pl.formatted_address:null);
+            });
+          }
+        };
+      }));
+    });
+  });
+}
+function getSuggestions(q){
+  var canNew=G.acMode==='new'&&G.places&&G.places.AutocompleteSuggestion;
+  if(!canNew) return acLegacy(q);
+  return acNew(q).catch(function(e){
+    G.newAcErr=errText(e);
+    return acLegacy(q).then(function(r){ G.acMode='legacy'; return r; });
+  });
+}
+
+var acT=null, acReq=0;
 function doAC(q){
   clearTimeout(acT);
   var list=$('ac-list');
   if(q.length<2){ list.style.display='none'; list.innerHTML=''; return; }
   acT=setTimeout(function(){
-    if(!acService){ list.style.display='none'; return; }
-    acService.getPlacePredictions({
-      input:q,
-      sessionToken:sessionToken,
-      componentRestrictions:{country:'us'}
-    },function(predictions,status){
-      if(status!==google.maps.places.PlacesServiceStatus.OK||!predictions){
-        list.style.display='none'; return;
-      }
+    if(!G.ready){ return; }
+    var id=++acReq;
+    getSuggestions(q).then(function(items){
+      if(id!==acReq) return;
+      setDestHint('');
       list.innerHTML='';
-      predictions.forEach(function(p){
+      if(!items.length){ list.style.display='none'; return; }
+      items.slice(0,5).forEach(function(it){
         var div=document.createElement('div');
         div.className='ac-item';
-        var main=p.structured_formatting.main_text||p.description;
-        var sec=p.structured_formatting.secondary_text||'';
-        div.innerHTML='<div class="ac-main">'+main+'</div>'+(sec?'<div class="ac-sub">'+sec+'</div>':'');
-        div.setAttribute('data-placeid',p.place_id);
-        div.setAttribute('data-desc',p.description);
+        var m=document.createElement('div'); m.className='ac-main'; m.textContent=it.main; div.appendChild(m);
+        if(it.sec){ var s=document.createElement('div'); s.className='ac-sub'; s.textContent=it.sec; div.appendChild(s); }
         div.addEventListener('click',function(){
-          var placeId=this.getAttribute('data-placeid');
-          var desc=this.getAttribute('data-desc');
-          var svc=new google.maps.places.PlacesService(document.createElement('div'));
-          svc.getDetails({placeId:placeId,fields:['formatted_address','geometry']},function(place,st){
-            if(st===google.maps.places.PlacesServiceStatus.OK&&place){
-              $('f-dest').value=place.formatted_address;
-            } else {
-              $('f-dest').value=desc;
-            }
-            list.style.display='none';
-            list.innerHTML='';
-            sessionToken=new google.maps.places.AutocompleteSessionToken();
+          $('f-dest').value=it.desc;           // fill right away
+          list.style.display='none'; list.innerHTML='';
+          updateMapsURL();
+          it.resolve(function(addr){            // then swap in the full street address
+            if(addr) $('f-dest').value=addr;
+            if(G.places&&G.places.AutocompleteSessionToken) G.token=new G.places.AutocompleteSessionToken();
+            if(G.legacyToken&&window.google.maps.places) G.legacyToken=new window.google.maps.places.AutocompleteSessionToken();
             updateMapsURL();
             autoDriveTime();
           });
@@ -377,6 +521,10 @@ function doAC(q){
         list.appendChild(div);
       });
       list.style.display='block';
+    }).catch(function(e){
+      if(id!==acReq) return;
+      list.style.display='none';
+      setDestHint('Address suggestions unavailable (Google: '+errText(e)+'). You can still type the full address.');
     });
   },300);
 }
@@ -385,42 +533,67 @@ document.addEventListener('click',function(e){
   if(!e.target.closest('.ac-wrap')){ $('ac-list').style.display='none'; }
 });
 
-// Distance Matrix auto drive time
+// --- Drive time: Routes API (new), then Distance Matrix (legacy) fallback ---
+function driveNew(org,dest,dep){
+  return G.routes.RouteMatrix.computeRouteMatrix({
+    origins:[org],destinations:[dest],travelMode:'DRIVING',
+    routingPreference:'TRAFFIC_AWARE',departureTime:dep,
+    fields:['durationMillis','condition']
+  }).then(function(res){
+    var it=res.matrix.rows[0].items[0];
+    if(it.error) throw it.error;
+    if(it.condition&&it.condition!=='ROUTE_EXISTS') throw new Error(it.condition);
+    if(!(it.durationMillis>0)) throw new Error('No duration returned');
+    return Math.ceil(it.durationMillis/60000);
+  });
+}
+function driveLegacy(org,dest,dep){
+  return new Promise(function(resolve,reject){
+    var gm=window.google.maps;
+    if(!gm.DistanceMatrixService){ reject(new Error('Distance Matrix unavailable')); return; }
+    new gm.DistanceMatrixService().getDistanceMatrix({
+      origins:[org],destinations:[dest],travelMode:'DRIVING',
+      drivingOptions:{departureTime:dep,trafficModel:'bestguess'},
+      unitSystem:gm.UnitSystem.IMPERIAL
+    },function(resp,status){
+      if(status!=='OK'){ reject(new Error(status)); return; }
+      var el=resp.rows[0].elements[0];
+      if(el.status!=='OK'){ reject(new Error(el.status)); return; }
+      resolve(Math.ceil((el.duration_in_traffic||el.duration).value/60));
+    });
+  });
+}
+
+var driveReq=0;
 function autoDriveTime(){
   var dest=$('f-dest').value.trim();
-  var org=$('f-origin').value.trim()||'3101 N Oxnard Blvd, Oxnard, CA 93036';
+  var org=originVal();
   var dv=$('f-date').value;
   var tv=$('f-time').value;
   if(!dest||!dv||!tv) return;
-  if(!window.google||!window.google.maps) return;
+  if(G.authFailed) return;
+  if(G.loadFailed&&!G.ready){ mapsLoadFailed(); return; }
+  if(!G.ready){ G.pendingDrive=true; setDriveHint('Loading Google Maps\u2026'); return; }
   var dp=dv.split('-'),tp=tv.split(':');
   var appt=new Date(+dp[0],+dp[1]-1,+dp[2],+tp[0],+tp[1],0);
   var curDrive=parseInt($('f-drive').value,10)||25;
   var depTime=new Date(appt.getTime()-(curDrive+10)*60000);
   if(depTime<new Date()) depTime=new Date(Date.now()+300000);
-  $('drive-hint').textContent='Calculating drive time with traffic...';
-  var svc=new google.maps.DistanceMatrixService();
-  svc.getDistanceMatrix({
-    origins:[org],
-    destinations:[dest],
-    travelMode:google.maps.TravelMode.DRIVING,
-    drivingOptions:{departureTime:depTime,trafficModel:google.maps.TrafficModel.BEST_GUESS},
-    unitSystem:google.maps.UnitSystem.IMPERIAL
-  },function(resp,status){
-    if(status==='OK'){
-      var el=resp.rows[0].elements[0];
-      if(el.status==='OK'){
-        var secs=el.duration_in_traffic?el.duration_in_traffic.value:el.duration.value;
-        var mins=Math.ceil(secs/60);
-        $('f-drive').value=mins;
-        $('drive-hint').textContent='Drive time: ~'+mins+' min with traffic at departure time. Adjust if needed.';
-        updateMapsURL();
-      } else {
-        $('drive-hint').textContent='Could not calculate drive time. Please enter manually.';
-      }
-    } else {
-      $('drive-hint').textContent='Could not calculate drive time. Please enter manually.';
-    }
+  var id=++driveReq;
+  setDriveHint('Calculating drive time with traffic\u2026');
+  var p=(G.routes&&G.routes.RouteMatrix)
+    ? driveNew(org,dest,depTime).catch(function(e){ G.newRouteErr=errText(e); return driveLegacy(org,dest,depTime); })
+    : driveLegacy(org,dest,depTime);
+  p.then(function(mins){
+    if(id!==driveReq) return;
+    $('f-drive').value=mins;
+    setDriveHint('Drive time: ~'+mins+' min with traffic at departure time. Adjust if needed.');
+    updateMapsURL();
+  }).catch(function(e){
+    if(id!==driveReq) return;
+    var why=errText(e);
+    if(G.newRouteErr&&G.newRouteErr!==why) why=G.newRouteErr+' / '+why;
+    setDriveHint('Couldn\u2019t get drive time (Google: '+why+'). Enter it manually.');
   });
 }
 
@@ -448,7 +621,7 @@ function loadKitten(){
   img.style.display='none';
   img.src='';
   loading.style.display='block';
-  loading.textContent='Loading your kitten... &#127807;';
+  loading.textContent='Loading your kitten… 🌿';
   caption.innerHTML='';
   fetch('https://api.thecatapi.com/v1/images/search?mime_types=jpg,png&limit=1')
     .then(function(r){ return r.json(); })
@@ -461,10 +634,10 @@ function loadKitten(){
         img.style.display='block';
         caption.innerHTML=kitCaptions[Math.floor(Math.random()*kitCaptions.length)];
       };
-      tmp.onerror=function(){ loading.textContent='This kitten escaped! Try another. &#128062;'; };
+      tmp.onerror=function(){ loading.textContent='This kitten escaped! Try another. 🐾'; };
       tmp.src=url;
     })
-    .catch(function(){ loading.textContent='Could not reach the kittens - check your connection. &#128062;'; });
+    .catch(function(){ loading.textContent='Could not reach the kittens — check your connection. 🐾'; });
 }
 
 $('kit-lnk-form').addEventListener('click',function(e){ e.preventDefault(); showKittens('pg-form'); });
@@ -472,6 +645,6 @@ $('kit-lnk-results').addEventListener('click',function(e){ e.preventDefault(); s
 $('kit-another').addEventListener('click',loadKitten);
 $('kit-back').addEventListener('click',function(){ showPg(kitPrevPage); });
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPUq7_kiudKR0MH4FDVexvGeeKOESbzKE&libraries=places&callback=initGoogleAC" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPUq7_kiudKR0MH4FDVexvGeeKOESbzKE&v=weekly&libraries=places,routes&loading=async&callback=initGoogle" async defer onerror="mapsLoadFailed()"></script>
 </body>
 </html>
