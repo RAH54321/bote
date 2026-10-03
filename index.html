@@ -71,6 +71,26 @@ h1 em{font-style:italic;color:var(--accent);}
 .cal-plus{font-size:20px;color:var(--accent);font-weight:300;flex-shrink:0;}
 .btn-green{display:block;width:100%;background:rgba(var(--leaf-rgb),.14);border:1px solid rgba(var(--leaf-rgb),.32);color:var(--leaf);border-radius:14px;padding:14px;font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;text-align:center;text-decoration:none;margin-bottom:10px;-webkit-appearance:none;appearance:none;cursor:pointer;}
 .btn-back{display:block;width:100%;background:transparent;border:1px solid rgba(var(--leaf-rgb),.2);color:var(--hint);border-radius:14px;padding:13px;font-size:14px;font-weight:600;font-family:'DM Sans',sans-serif;text-align:center;cursor:pointer;margin-bottom:10px;-webkit-appearance:none;appearance:none;}
+.alt-maps{display:block;text-align:center;font-size:13px;color:var(--leaf);text-decoration:underline;text-underline-offset:3px;margin:-2px 0 12px;cursor:pointer;}
+/* Edit banner + My Events */
+.edit-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;background:rgba(var(--accent-rgb),.12);border:1px solid rgba(var(--accent-rgb),.4);border-radius:12px;padding:10px 14px;margin-bottom:10px;font-size:13px;color:#F5EDD6;}
+.edit-bar a{color:var(--accent);font-weight:600;white-space:nowrap;text-decoration:underline;text-underline-offset:3px;}
+.h-sec{display:flex;align-items:baseline;justify-content:space-between;margin:6px 0 8px;}
+.h-sec .slbl{margin:0;}
+.h-sub{font-size:11px;color:var(--hint);}
+.ev{background:rgba(255,255,255,.07);border:1px solid rgba(var(--leaf-rgb),.22);border-radius:14px;padding:12px 14px;margin-bottom:8px;}
+.ev.past{opacity:.75;}
+.ev-top{display:flex;align-items:baseline;justify-content:space-between;gap:8px;}
+.ev-title{font-weight:600;color:#F5EDD6;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.ev-tag{font-size:10px;font-weight:600;color:var(--hint);border:1px solid rgba(var(--leaf-rgb),.25);border-radius:8px;padding:2px 6px;white-space:nowrap;}
+.ev-when{font-size:13px;color:var(--leaf);margin-top:3px;}
+.ev-plan{font-size:12px;color:var(--muted);margin-top:2px;}
+.ev-dest{font-size:12px;color:var(--hint);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.ev-acts{display:flex;gap:6px;margin-top:10px;}
+.ev-acts button{flex:1;padding:9px 6px;border-radius:10px;font-size:12px;font-weight:600;font-family:'DM Sans',sans-serif;background:rgba(var(--leaf-rgb),.12);color:var(--leaf);border:1px solid rgba(var(--leaf-rgb),.3);-webkit-appearance:none;appearance:none;cursor:pointer;}
+.ev-acts button.del{flex:0 0 auto;padding:9px 12px;background:transparent;color:#f88;border-color:rgba(200,50,50,.35);}
+.h-empty{font-size:13px;color:var(--hint);text-align:center;padding:16px 10px;line-height:1.6;border:1px dashed rgba(var(--leaf-rgb),.25);border-radius:14px;margin-bottom:10px;}
+.h-note{font-size:11px;color:var(--hint);text-align:center;margin:4px 0 12px;line-height:1.6;}
 .cal-note{font-size:11px;color:var(--hint);text-align:center;margin-top:8px;line-height:1.6;}
 
 /* Footer + kitten link */
@@ -105,19 +125,18 @@ function boteEaster(y){ /* Anonymous Gregorian computus */
       n=h+l-7*m+114;
   return new Date(y,Math.floor(n/31)-1,(n%31)+1);
 }
-function boteThanksgiving(y){ var d=new Date(y,10,1); return new Date(y,10,1+((4-d.getDay()+7)%7)+21); }
 function botePickTheme(now){
   var y=now.getFullYear(), md=(now.getMonth()+1)*100+now.getDate();
   var today=new Date(y,now.getMonth(),now.getDate());
   function near(day,before,after){ var s=new Date(day),e=new Date(day); s.setDate(s.getDate()-before); e.setDate(e.getDate()+after); return today>=s&&today<=e; }
-  if(md>=1230||md<=102) return 'newyear';
-  if(md>=1201&&md<=1229) return 'christmas';
+  if(md>=1230||md<=102) return 'newyear';           // Dec 30 - Jan 2
+  if(md>=1201) return 'christmas';                   // Dec 1-29
   if(md>=207&&md<=214) return 'valentines';
   if(md>=314&&md<=317) return 'stpatricks';
   if(near(boteEaster(y),7,1)) return 'easter';
   if(md>=630&&md<=705) return 'july4';
-  if(md>=1015&&md<=1031) return 'halloween';
-  if(near(boteThanksgiving(y),3,3)) return 'thanksgiving';
+  if(md>=1001&&md<=1031) return 'halloween';         // all of October
+  if(md>=1116&&md<=1130) return 'thanksgiving';      // Nov 16-30 (fall leaves show Nov 1-15)
   if(md>=320&&md<=620) return 'spring';
   if(md>=621&&md<=921) return 'summer';
   if(md>=922&&md<=1220) return 'fall';
@@ -161,6 +180,8 @@ function botePickTheme(now){
     <p class="season-note" id="season-note"></p>
   </header>
   <div class="divider"><span></span><i id="season-emoji">&#127807;</i><span></span></div>
+
+  <div class="edit-bar" id="edit-bar" style="display:none;"><span id="edit-bar-text"></span><a href="#" id="edit-new">New event</a></div>
 
   <div class="card">
     <span class="lbl">What's the appointment?</span>
@@ -209,6 +230,7 @@ function botePickTheme(now){
 
   <div class="errmsg" id="f-err"></div>
   <button class="btn-gold" id="magic-btn" type="button">&#10024; Work Your Magic &#10024;</button>
+  <button class="btn-back" id="my-events-btn" type="button">&#128203; My events</button>
 
   <footer>B.O.T.E. Magic Calculator &middot; Made with &#128155; for you</footer>
   <a class="kitten-lnk" href="#" id="kit-lnk-form">&#128049; click here for kittens</a>
@@ -232,10 +254,31 @@ function botePickTheme(now){
   <a class="cal-btn" id="c-leave" href="#"><div class="cal-icon">&#128663;</div><div class="cal-info"><div class="cal-title">Leave now!</div><div class="cal-time" id="c-leave-t"></div></div><div class="cal-plus">+</div></a>
   <a class="cal-btn" id="c-appt" href="#"><div class="cal-icon">&#128197;</div><div class="cal-info"><div class="cal-title" id="c-appt-title">Appointment</div><div class="cal-time" id="c-appt-t"></div></div><div class="cal-plus">+</div></a>
   <button id="r-maps" type="button" class="btn-green">&#128506; Open route in Maps</button>
+  <a id="r-waze" class="btn-green" href="#" style="display:none;">&#128663; Open route in Waze</a>
+  <a id="r-maps-alt" class="alt-maps" href="#" style="display:none;">or open in Apple Maps</a>
   <p class="cal-note">Tap each event to add it to Apple Calendar. You'll get reminders. &#127807;</p>
   <button class="btn-back" id="back-btn" type="button">&#8592; Back</button>
+  <button class="btn-back" id="r-history" type="button">&#128203; My events</button>
   <footer>B.O.T.E. Magic Calculator &middot; Made with &#128155; for you</footer>
   <a class="kitten-lnk" href="#" id="kit-lnk-results">&#128049; click here for kittens</a>
+</div>
+
+<!-- MY EVENTS PAGE -->
+<div class="pg" id="pg-history">
+  <div class="res-header">
+    <div class="badge">&#10024; Your Events &#10024;</div>
+    <h2>My Events</h2>
+    <p>Saved on this device only.</p>
+  </div>
+  <div class="h-sec"><div class="slbl">Upcoming</div><span class="h-sub" id="h-up-count"></span></div>
+  <div id="h-upcoming"></div>
+  <div class="h-sec"><div class="slbl">Archive</div><span class="h-sub" id="h-arch-count"></span></div>
+  <p class="h-note">Events move here one day after they happen.</p>
+  <button class="btn-back" id="h-arch-toggle" type="button">Show archive</button>
+  <div id="h-archive" style="display:none;"></div>
+  <p class="h-note" id="h-save-warn" style="display:none;color:#f88;">This browser isn't saving events (Private Browsing may be on).</p>
+  <button class="btn-gold" id="h-new" type="button">+ New event</button>
+  <button class="btn-back" id="h-back" type="button">&#8592; Back</button>
 </div>
 
 <!-- KITTEN PAGE -->
@@ -260,7 +303,8 @@ function botePickTheme(now){
 // WebView detection
 (function(){
   var ua=navigator.userAgent;
-  var isIOSWebView=/iP(hone|od|ad)/.test(ua)&&!(/Safari\//.test(ua));
+  var standalone=window.navigator.standalone===true||(window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches);
+  var isIOSWebView=/iP(hone|od|ad)/.test(ua)&&!(/Safari\//.test(ua))&&!standalone;  // Home Screen app is fine
   if(isIOSWebView){ document.getElementById('safari-banner').style.display='flex'; }
 })();
 
@@ -283,16 +327,18 @@ function icsDate(d){
   return ''+d.getUTCFullYear()+pz(d.getUTCMonth()+1)+pz(d.getUTCDate())+'T'+pz(d.getUTCHours())+pz(d.getUTCMinutes())+'00Z';
 }
 function icsEsc(s){ return String(s||'').replace(/\\/g,'\\\\').replace(/;/g,'\\;').replace(/,/g,'\\,').replace(/\r?\n/g,'\\n'); }
-function makeICS(title,desc,loc,start,end,alarmMins){
-  var uid=Date.now()+'-'+Math.random().toString(36).slice(2)+'@bote';
+function makeICS(title,desc,loc,start,end,alarmMins,url,uid,seq){
+  uid=uid||(Date.now()+'-'+Math.random().toString(36).slice(2)+'@bote');
   var s='BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//BOTE//EN\r\nBEGIN:VEVENT\r\n';
   s+='UID:'+uid+'\r\n';
   s+='DTSTAMP:'+icsDate(new Date())+'\r\n';
+  if(seq) s+='SEQUENCE:'+seq+'\r\n';
   s+='DTSTART:'+icsDate(start)+'\r\n';
   s+='DTEND:'+icsDate(end)+'\r\n';
   s+='SUMMARY:'+icsEsc(title)+'\r\n';
   s+='DESCRIPTION:'+icsEsc(desc)+'\r\n';
   s+='LOCATION:'+icsEsc(loc)+'\r\n';
+  if(url) s+='URL:'+url+'\r\n';
   var alarms=Array.isArray(alarmMins)?alarmMins:(alarmMins?[alarmMins]:[]);
   alarms.forEach(function(mins){
     s+='BEGIN:VALARM\r\nTRIGGER:-PT'+mins+'M\r\nACTION:DISPLAY\r\nDESCRIPTION:'+icsEsc(title)+'\r\nEND:VALARM\r\n';
@@ -308,62 +354,250 @@ function showErr(msg){ var e=$('f-err'); e.textContent=msg; e.style.display='blo
 function hideErr(){ $('f-err').style.display='none'; }
 
 function showPg(id){
-  var pgs=['pg-form','pg-results','pg-kittens'];
+  var pgs=['pg-form','pg-results','pg-kittens','pg-history'];
   for(var i=0;i<pgs.length;i++) $(pgs[i]).style.display='none';
   $(id).style.display='block';
+  if(id==='pg-form'&&$('my-events-btn')) updateEventsBtn();
   window.scrollTo(0,0);
 }
 
 function originVal(){ return $('f-origin').value.trim()||HOME; }
 
+// Apple devices (iPhone, iPad, Mac) open Apple Maps; everything else (Windows PC, Android) opens Google Maps.
+// iPadOS reports itself as "Macintosh", so the Macintosh check covers iPads too.
+var IS_APPLE=/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
+function routeURL(org,dst){
+  var o=encodeURIComponent(org), d=encodeURIComponent(dst||'');
+  if(IS_APPLE){
+    return dst ? 'maps://?saddr='+o+'&daddr='+d+'&dirflg=d' : 'maps://?q='+o;
+  }
+  return dst
+    ? 'https://www.google.com/maps/dir/?api=1&origin='+o+'&destination='+d+'&travelmode=driving'
+    : 'https://www.google.com/maps/search/?api=1&query='+o;
+}
+function openRoute(url){
+  if(!url) return;
+  if(IS_APPLE){ window.location.href=url; }          // Apple Maps links must use location.href on iOS
+  else { var w=window.open(url,'_blank'); if(!w) window.location.href=url; }  // new tab on PC; same tab if blocked
+}
+
+// Phones (iPhone, Android phone) get a Waze button on the results page, with a small Apple/Google Maps link under it.
+// iPads and computers keep the regular Maps button.
+var IS_PHONE=/iPhone|iPod|Android.*Mobile/.test(navigator.userAgent);
+function wazeURL(dst){ return 'https://waze.com/ul?q='+encodeURIComponent(dst)+'&navigate=yes'; }  // Waze routes from current location
+
 function updateMapsURL(){
-  var org=originVal();
-  var dst=$('f-dest').value.trim();
-  var url=dst
-    ?'maps://?saddr='+encodeURIComponent(org)+'&daddr='+encodeURIComponent(dst)+'&dirflg=d'
-    :'maps://?q='+encodeURIComponent(org);
-  $('maps-check').setAttribute('data-url',url);
+  $('maps-check').setAttribute('data-url',routeURL(originVal(),$('f-dest').value.trim()));
+}
+
+/* ===== Saved events (stored on this device only) ===== */
+var STORE_KEY='bote_events_v1';
+var MAX_ARCHIVED=150;
+var storageOK=true;
+function loadEvents(){
+  try{ var a=JSON.parse(localStorage.getItem(STORE_KEY)||'[]'); return Array.isArray(a)?a:[]; }
+  catch(e){ return []; }
+}
+function saveEvents(list){
+  try{ localStorage.setItem(STORE_KEY,JSON.stringify(list)); storageOK=true; }
+  catch(e){ storageOK=false; }
+  try{ if(navigator.storage&&navigator.storage.persist) navigator.storage.persist().catch(function(){}); }catch(e){}
+  return storageOK;
+}
+function findEvent(list,id){ for(var i=0;i<list.length;i++) if(list[i].id===id) return list[i]; return null; }
+function newId(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,7); }
+function apptOf(rec){ var dp=rec.date.split('-'),tp=rec.time.split(':'); return new Date(+dp[0],+dp[1]-1,+dp[2],+tp[0],+tp[1],0); }
+function isArchived(rec){ return apptOf(rec).getTime()+24*3600000 < Date.now(); }  // 1 day after the appointment
+function calcPlan(rec){
+  var appt=apptOf(rec);
+  var buffReady=Math.round(rec.ready*1.5)+10, buffDrive=rec.drive+10;
+  var leave=new Date(appt.getTime()-buffDrive*60000);
+  var readyT=new Date(appt.getTime()-(buffReady+buffDrive)*60000);
+  return {appt:appt,leave:leave,readyT:readyT,buffReady:buffReady,buffDrive:buffDrive};
+}
+function pruneEvents(list){
+  var arch=list.filter(isArchived).sort(function(a,b){ return apptOf(b)-apptOf(a); });
+  if(arch.length<=MAX_ARCHIVED) return list;
+  var drop={}; arch.slice(MAX_ARCHIVED).forEach(function(r){ drop[r.id]=1; });
+  return list.filter(function(r){ return !drop[r.id]; });
+}
+
+/* ===== Form: new / edit / reuse ===== */
+var editId=null;
+function readForm(){
+  var f={
+    name:$('f-name').value.trim()||'Appointment',
+    dest:$('f-dest').value.trim(),
+    origin:originVal(),
+    date:$('f-date').value,
+    time:$('f-time').value,
+    ready:parseInt($('f-ready').value,10),
+    drive:parseInt($('f-drive').value,10)
+  };
+  if(!f.dest){showErr('Please enter where you are going.');return null;}
+  if(!f.date){showErr('Please enter the appointment date.');return null;}
+  if(!f.time){showErr('Please enter the appointment time.');return null;}
+  if(!(f.ready>0)){showErr('Please enter your get-ready time.');return null;}
+  if(!(f.drive>0)){showErr('Please enter the drive time.');return null;}
+  return f;
+}
+function todayStr(){ var d=new Date(); return d.getFullYear()+'-'+pz(d.getMonth()+1)+'-'+pz(d.getDate()); }
+function fillForm(rec){
+  $('f-name').value=rec.name==='Appointment'?'':rec.name;
+  $('f-dest').value=rec.dest;
+  $('f-origin').value=rec.origin||HOME;
+  $('f-date').value=rec.date;
+  $('f-time').value=rec.time;
+  $('f-ready').value=rec.ready;
+  $('f-drive').value=rec.drive;
+  $('drive-hint').textContent='Drive time recalculates if you change the destination, date, or time.';
+  hideErr(); setDestHint(''); updateMapsURL();
+}
+function setBar(text){
+  if(text){ $('edit-bar-text').textContent=text; $('edit-bar').style.display='flex'; }
+  else { $('edit-bar').style.display='none'; }
+}
+function startEdit(rec){
+  editId=rec.id; fillForm(rec);
+  setBar('Editing \u201C'+rec.name+'\u201D');
+  $('magic-btn').innerHTML='&#10024; Save Changes &#10024;';
+  showPg('pg-form');
+}
+function startReuse(rec){
+  editId=null; fillForm(rec);
+  $('f-date').value=todayStr();
+  setBar('Reusing \u201C'+rec.name+'\u201D \u2014 pick a new date');
+  $('magic-btn').innerHTML='&#10024; Work Your Magic &#10024;';
+  showPg('pg-form');
+  autoDriveTime();
+}
+function startNew(){
+  editId=null;
+  $('f-name').value=''; $('f-dest').value=''; $('f-origin').value=HOME;
+  $('f-date').value=todayStr(); $('f-time').value=''; $('f-ready').value=''; $('f-drive').value=25;
+  $('drive-hint').textContent='Enter destination, date & time first \u2014 drive time will calculate automatically.';
+  setBar(''); hideErr(); setDestHint(''); updateMapsURL();
+  $('magic-btn').innerHTML='&#10024; Work Your Magic &#10024;';
+  showPg('pg-form');
 }
 
 function go(){
   hideErr();
-  var name=$('f-name').value.trim()||'Appointment';
-  var dest=$('f-dest').value.trim();
-  var org=originVal();
-  var dv=$('f-date').value;
-  var tv=$('f-time').value;
-  var ready=parseInt($('f-ready').value,10);
-  var drive=parseInt($('f-drive').value,10);
-  if(!dest){showErr('Please enter where you are going.');return;}
-  if(!dv){showErr('Please enter the appointment date.');return;}
-  if(!tv){showErr('Please enter the appointment time.');return;}
-  if(!(ready>0)){showErr('Please enter your get-ready time.');return;}
-  if(!(drive>0)){showErr('Please enter the drive time.');return;}
-  var dp=dv.split('-'),tp=tv.split(':');
-  var appt=new Date(+dp[0],+dp[1]-1,+dp[2],+tp[0],+tp[1],0);
-  var buffReady=Math.round(ready*1.5)+10;
-  var buffDrive=drive+10;
-  var leave=new Date(appt.getTime()-buffDrive*60000);
-  var readyT=new Date(appt.getTime()-(buffReady+buffDrive)*60000);
+  var f=readForm(); if(!f) return;
+  var list=loadEvents();
+  var rec=editId?findEvent(list,editId):null;
+  if(!rec){ // same appointment entered again? update it instead of saving a duplicate
+    for(var i=0;i<list.length;i++){ var r=list[i]; if(r.name===f.name&&r.dest===f.dest&&r.date===f.date&&r.time===f.time){ rec=r; break; } }
+  }
+  if(rec){
+    var changed=['name','dest','origin','date','time','ready','drive'].some(function(k){ return rec[k]!==f[k]; });
+    for(var k in f) rec[k]=f[k];
+    if(changed){ rec.edits=(rec.edits||0)+1; rec.updated=Date.now(); }
+  } else {
+    rec={id:newId(),created:Date.now(),updated:Date.now(),edits:0};
+    for(var k2 in f) rec[k2]=f[k2];
+    list.push(rec);
+  }
+  saveEvents(pruneEvents(list));
+  editId=rec.id;  // "Back" from results lets her tweak this same event
+  showResults(rec,'pg-form');
+}
+
+/* ===== Results page ===== */
+var resultsFrom='pg-form', resultsId=null;
+function showResults(rec,from){
+  resultsFrom=from; resultsId=rec.id;
+  var name=rec.name, dest=rec.dest, org=rec.origin||HOME;
+  var p=calcPlan(rec), appt=p.appt, leave=p.leave, readyT=p.readyT;
   $('r-title').textContent=name+' \uD83D\uDC51';
   $('r-date').textContent=fmtD(appt);
   $('r-ready').textContent=fmt(readyT);
   $('r-leave').textContent=fmt(leave);
   $('r-appt').textContent=fmt(appt);
   var dl=fmtD(appt);
-  $('r-bkdn').innerHTML='<span>Get-ready: '+ready+' min &rarr; <strong>'+buffReady+' min</strong> (&times;1.5 + 10 min)</span><br>'+'<span>Drive: '+drive+' min + 10 min buffer = <strong>'+buffDrive+' min</strong></span>';
+  $('r-bkdn').innerHTML='<span>Get-ready: '+rec.ready+' min &rarr; <strong>'+p.buffReady+' min</strong> (&times;1.5 + 10 min)</span><br>'+'<span>Drive: '+rec.drive+' min + 10 min buffer = <strong>'+p.buffDrive+' min</strong></span>';
   $('c-ready-t').textContent=fmt(readyT)+' - '+dl;
-  $('c-leave-t').textContent=fmt(leave)+' - '+dl;
+  $('c-leave-t').textContent=fmt(leave)+' \u2013 '+fmt(appt)+' (drive) - '+dl;
   $('c-appt-title').textContent=name;
   $('c-appt-t').textContent=fmt(appt)+' - '+dl;
   var rEnd=new Date(readyT.getTime()+10*60000);
-  var lEnd=new Date(leave.getTime()+10*60000);
+  var lEnd=appt;  // drive event blocks leave time through appointment start
   var aEnd=new Date(appt.getTime()+60*60000);
-  setICS($('c-ready'),makeICS('Get ready for '+name,'Leave by '+fmt(leave)+'.','' ,readyT,rEnd,[10,0]),'get_ready.ics');
-  setICS($('c-leave'),makeICS('Leave for '+name+'!','Appointment at '+fmt(appt)+' at '+dest+'.',dest,leave,lEnd,[15,5]),'leave_now.ics');
-  setICS($('c-appt'),makeICS(name,'At '+dest+'. Leave by '+fmt(leave)+'.',dest,appt,aEnd,10),(name.replace(/[^A-Za-z0-9]+/g,'_')||'Appointment')+'.ics');
-  $('r-maps').setAttribute('data-url','maps://?saddr='+encodeURIComponent(org)+'&daddr='+encodeURIComponent(dest)+'&dirflg=d');
+  var seq=rec.edits||0, uid=rec.id;
+  setICS($('c-ready'),makeICS('Get ready for '+name,'Leave by '+fmt(leave)+'.','' ,readyT,rEnd,[10,0],null,uid+'-ready@bote',seq),'get_ready.ics');
+  var waze=wazeURL(dest);
+  setICS($('c-leave'),makeICS('Leave for '+name+'!','Appointment at '+fmt(appt)+' at '+dest+'.\n\nOpen in Waze: '+waze,dest,leave,lEnd,[15,5],waze,uid+'-leave@bote',seq),'leave_now.ics');
+  setICS($('c-appt'),makeICS(name,'At '+dest+'. Leave by '+fmt(leave)+'.',dest,appt,aEnd,10,null,uid+'-appt@bote',seq),(name.replace(/[^A-Za-z0-9]+/g,'_')||'Appointment')+'.ics');
+  $('r-maps').setAttribute('data-url',routeURL(org,dest));
+  $('r-waze').href=wazeURL(dest);
   showPg('pg-results');
+}
+
+/* ===== My Events page ===== */
+function whenText(rec){
+  var a=apptOf(rec), now=new Date();
+  return fmtD(a)+(a.getFullYear()!==now.getFullYear()?', '+a.getFullYear():'')+' \u00B7 '+fmt(a);
+}
+function eventCard(rec,archived){
+  var p=calcPlan(rec);
+  var card=document.createElement('div');
+  card.className='ev'+(!archived&&p.appt<new Date()?' past':'');
+  var top=document.createElement('div'); top.className='ev-top';
+  var t=document.createElement('div'); t.className='ev-title'; t.textContent=rec.name; top.appendChild(t);
+  if(!archived&&p.appt<new Date()){ var tag=document.createElement('span'); tag.className='ev-tag'; tag.textContent='Done'; top.appendChild(tag); }
+  card.appendChild(top);
+  var w=document.createElement('div'); w.className='ev-when'; w.textContent=whenText(rec); card.appendChild(w);
+  var pl=document.createElement('div'); pl.className='ev-plan'; pl.textContent='Get ready '+fmt(p.readyT)+' \u00B7 Leave '+fmt(p.leave); card.appendChild(pl);
+  var d=document.createElement('div'); d.className='ev-dest'; d.textContent=rec.dest; card.appendChild(d);
+  var acts=document.createElement('div'); acts.className='ev-acts';
+  var btns=archived?[['view','View'],['reuse','Reuse'],['del','Delete']]:[['view','View'],['edit','Edit'],['del','Delete']];
+  btns.forEach(function(b){
+    var el=document.createElement('button'); el.type='button'; el.textContent=b[1];
+    el.setAttribute('data-act',b[0]); el.setAttribute('data-id',rec.id);
+    if(b[0]==='del') el.className='del';
+    acts.appendChild(el);
+  });
+  card.appendChild(acts);
+  return card;
+}
+var historyFrom='pg-form';
+function renderHistory(){
+  var list=loadEvents();
+  var up=list.filter(function(r){ return !isArchived(r); }).sort(function(a,b){ return apptOf(a)-apptOf(b); });
+  var arch=list.filter(isArchived).sort(function(a,b){ return apptOf(b)-apptOf(a); });
+  var u=$('h-upcoming'), a=$('h-archive');
+  u.innerHTML=''; a.innerHTML='';
+  if(!up.length){ var e1=document.createElement('div'); e1.className='h-empty'; e1.textContent='No upcoming events. Tap \u201C+ New event\u201D to plan one.'; u.appendChild(e1); }
+  up.forEach(function(r){ u.appendChild(eventCard(r,false)); });
+  if(!arch.length){ var e2=document.createElement('div'); e2.className='h-empty'; e2.textContent='Nothing archived yet.'; a.appendChild(e2); }
+  arch.forEach(function(r){ a.appendChild(eventCard(r,true)); });
+  $('h-up-count').textContent=up.length?up.length+(up.length===1?' event':' events'):'';
+  $('h-arch-count').textContent=arch.length?arch.length+(arch.length===1?' event':' events'):'';
+  $('h-arch-toggle').textContent=(a.style.display==='none'?'Show archive':'Hide archive')+(arch.length?' ('+arch.length+')':'');
+  $('h-save-warn').style.display=storageOK?'none':'block';
+}
+function showHistory(from){
+  if(from) historyFrom=from;
+  renderHistory();
+  showPg('pg-history');
+}
+function updateEventsBtn(){
+  var n=loadEvents().filter(function(r){ return !isArchived(r); }).length;
+  $('my-events-btn').innerHTML='&#128203; My events'+(n?' ('+n+' upcoming)':'');
+}
+function onHistoryAction(e){
+  var btn=e.target.closest('button[data-act]'); if(!btn) return;
+  var id=btn.getAttribute('data-id'), act=btn.getAttribute('data-act');
+  var list=loadEvents(), rec=findEvent(list,id); if(!rec) return;
+  if(act==='view') showResults(rec,'pg-history');
+  else if(act==='edit') startEdit(rec);
+  else if(act==='reuse') startReuse(rec);
+  else if(act==='del'){
+    if(!confirm('Delete \u201C'+rec.name+'\u201D ('+whenText(rec)+')?\n\nThis only removes it from the app, not from your calendar.')) return;
+    saveEvents(list.filter(function(r){ return r.id!==id; }));
+    if(editId===id){ editId=null; setBar(''); $('magic-btn').innerHTML='&#10024; Work Your Magic &#10024;'; }
+    renderHistory();
+  }
 }
 
 // Seasonal touches on the page itself
@@ -375,9 +609,28 @@ function go(){
 
 // Button wiring
 $('magic-btn').addEventListener('click',go);
-$('back-btn').addEventListener('click',function(){ showPg('pg-form'); });
-$('maps-check').addEventListener('click',function(){ window.location.href=this.getAttribute('data-url')||'maps://'; });
-$('r-maps').addEventListener('click',function(){ window.location.href=this.getAttribute('data-url')||'maps://'; });
+$('back-btn').addEventListener('click',function(){
+  if(resultsFrom==='pg-history'){ showHistory(); return; }
+  var rec=findEvent(loadEvents(),resultsId);
+  if(rec) startEdit(rec); else showPg('pg-form');
+});
+$('r-history').addEventListener('click',function(){ showHistory('pg-results'); });
+$('my-events-btn').addEventListener('click',function(){ showHistory('pg-form'); });
+$('edit-new').addEventListener('click',function(e){ e.preventDefault(); startNew(); });
+$('h-new').addEventListener('click',startNew);
+$('h-back').addEventListener('click',function(){ if(historyFrom==='pg-results'&&resultsId&&findEvent(loadEvents(),resultsId)){ showResults(findEvent(loadEvents(),resultsId),resultsFrom); } else { showPg('pg-form'); } });
+$('h-arch-toggle').addEventListener('click',function(){ var a=$('h-archive'); a.style.display=a.style.display==='none'?'block':'none'; renderHistory(); });
+$('h-upcoming').addEventListener('click',onHistoryAction);
+$('h-archive').addEventListener('click',onHistoryAction);
+$('maps-check').addEventListener('click',function(){ updateMapsURL(); openRoute(this.getAttribute('data-url')); });
+$('r-maps').addEventListener('click',function(){ openRoute(this.getAttribute('data-url')); });
+$('r-maps-alt').addEventListener('click',function(e){ e.preventDefault(); openRoute($('r-maps').getAttribute('data-url')); });
+if(IS_PHONE){
+  $('r-maps').style.display='none';
+  $('r-waze').style.display='block';
+  $('r-maps-alt').textContent=IS_APPLE?'or open in Apple Maps':'or open in Google Maps';
+  $('r-maps-alt').style.display='block';
+}
 $('f-date').addEventListener('click',function(){ try{this.showPicker();}catch(e){} });
 $('f-time').addEventListener('click',function(){ try{this.showPicker();}catch(e){} });
 $('f-date').addEventListener('change',function(){ autoDriveTime(); });
